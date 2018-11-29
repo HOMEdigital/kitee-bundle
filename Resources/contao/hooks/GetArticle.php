@@ -17,14 +17,16 @@ class GetArticle
     /**
      * @param \Contao\ArticleModel $objRow
      */
-    public function setCustomClasses(ArticleModel $objRow)
+    public function setLayoutClasses(ArticleModel $objRow)
     {
         $classes = $objRow->__get('classes');
 
         $hmLayout = $objRow->__get('hm_layout');
         $hmDesign = $objRow->__get('hm_design');
-        $hmStepInner = $objRow->__get('hm_step_inner');
-        $hmStepOuter = $objRow->__get('hm_step_outer');
+        $hmStepInnerTop = $objRow->__get('hm_step_inner_top');
+        $hmStepInnerBottom = $objRow->__get('hm_step_inner_bottom');
+        $hmStepOuterTop = $objRow->__get('hm_step_outer_top');
+        $hmStepOuterBottom = $objRow->__get('hm_step_outer_bottom');
 
         if($hmLayout){
             $classes[] = $hmLayout;
@@ -32,11 +34,17 @@ class GetArticle
         if($hmDesign){
             $classes[] = $hmDesign;
         }
-        if($hmStepInner){
-            $classes[] = $hmStepInner;
+        if($hmStepInnerTop && strpos($hmStepInnerTop, '-no') === false){
+            $classes[] = $hmStepInnerTop;
         }
-        if($hmStepOuter){
-            $classes[] = $hmStepOuter;
+        if($hmStepInnerBottom && strpos($hmStepInnerBottom, '-no') === false){
+            $classes[] = $hmStepInnerBottom;
+        }
+        if($hmStepOuterTop && strpos($hmStepOuterTop, '-no') === false){
+            $classes[] = $hmStepOuterTop;
+        }
+        if($hmStepOuterBottom && strpos($hmStepOuterBottom, '-no') === false){
+            $classes[] = $hmStepOuterBottom;
         }
 
         $objRow->__set('classes', $classes);

@@ -1,0 +1,8 @@
+<div class="<?= $this->class ?>">
+    <?php
+    $class = "";
+    if ($this->hm_design == "bkg-greenie-paper") {
+        $class = "border-strichel-white";
+    }
+    ?>
+    <div class="<?= $class; ?>">
