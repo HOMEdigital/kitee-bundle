@@ -1,8 +1,7 @@
-<div class="<?= $this->class ?>">
-    <?php
-    $class = "";
-    if ($this->hm_design == "bkg-greenie-paper") {
-        $class = "border-strichel-white";
-    }
-    ?>
-    <div class="<?= $class; ?>">
+<div class="<?= $this->class ?> hm-container">
+    <?php if($this->singleSRC): ?>
+        <div class="container-img">
+            <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, ''))->picture) ?>
+        </div>
+    <?php endif; ?>
+    <div class="hm-container-content <?= $this->contentClasses ?>">

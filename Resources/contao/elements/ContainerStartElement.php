@@ -8,10 +8,6 @@
 
 namespace Home\CustomizeeBundle\Resources\contao\elements;
 
-use Home\LibrareeBundle\Resources\contao\elements\RecipeeDetailElement;
-use Home\LibrareeSearchBundle\Resources\contao\elements\SearchResultElement;
-use Home\PearlsBundle\Resources\contao\Helper as Helper;
-
 class ContainerStartElement extends \ContentElement
 {
     /**
@@ -46,16 +42,21 @@ class ContainerStartElement extends \ContentElement
      */
     private function generateFrontend()
     {
+        $this->Template->contentClasses = "";
+
+        if ($this->hm_layout) {
+            $this->Template->contentClasses .= " " . $this->hm_layout;
+        }
         if ($this->hm_design) {
             $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_design));
         }
-        if ($this->hm_step_inner) {
+        if ($this->hm_step_inner && strpos($this->hm_step_inner, '-no') === false) {
             $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_step_inner));
         }
-        if ($this->hm_gap_inner) {
+        if ($this->hm_gap_inner && strpos($this->hm_gap_inner, '-no') === false) {
             $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_gap_inner));
         }
-        if ($this->hm_step_outer) {
+        if ($this->hm_step_outer && strpos($this->hm_step_outer, '-no') === false) {
             $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_step_outer));
         }
     }

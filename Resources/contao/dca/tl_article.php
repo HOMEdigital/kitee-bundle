@@ -8,10 +8,8 @@
 
 use Home\PearlsBundle\Resources\contao\Helper\Dca as Helper;
 
-$moduleName = 'tl_article';
-
 try{
-    $tl_article = new Helper\DcaHelper($moduleName);
+    $tl_article = new Helper\DcaHelper('tl_article');
 
     #-- container Felder -----------------------------------------------------------------------------------------------------
     $tl_article
@@ -28,7 +26,14 @@ try{
             'default' => 'limited',
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
-                'tl_class' => 'w50'
+                'tl_class' => 'w50 clr'
+            ),
+        ))
+        ->addField('select', 'hm_design', array(
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
             ),
         ))
         ->addField('select', 'hm_step_inner_top', array(
@@ -41,7 +46,7 @@ try{
             'default' => 'step-inner-top-no',
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
-                'tl_class' => 'w50'
+                'tl_class' => 'w50 clr'
             ),
         ))
         ->addField('select', 'hm_step_inner_bottom', array(
@@ -67,7 +72,7 @@ try{
             'default' => 'step-outer-top-no',
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
-                'tl_class' => 'w50'
+                'tl_class' => 'w50 clr'
             ),
         ))
         ->addField('select', 'hm_step_outer_bottom', array(
@@ -83,18 +88,11 @@ try{
                 'tl_class' => 'w50'
             ),
         ))
-        ->addField('select', 'hm_design', array(
-            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
-            'eval' => array(
-                'tl_class' => 'w50',
-                'includeBlankOption' => true,
-            ),
-        ))
     ;
 
     #-- Container paletten -----------------------------------------------------------------------------------------------------
     $tl_article
-        ->addPaletteGroup('layout', array('inColumn','hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'default', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'default', 2)
     ;
 
 
