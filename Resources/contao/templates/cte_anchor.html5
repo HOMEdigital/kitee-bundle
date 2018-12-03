@@ -1,0 +1,1 @@
+<a class="hm-anchor <?php echo $this->class ?>" name="<?= $this->anchorId ?>" id="<?= $this->anchorId ?>"></a>

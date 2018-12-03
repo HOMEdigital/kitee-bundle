@@ -16,6 +16,9 @@ array_insert($GLOBALS['TL_CTE'], 2, array
     'hm_container' => array(
         'hm_container_start'       => 'Home\CustomizeeBundle\Resources\contao\elements\ContainerStartElement',
         'hm_container_end'         => 'Home\CustomizeeBundle\Resources\contao\elements\ContainerEndElement',
+    ),
+    'hm_kitee' => array(
+        'hm_hr'  => 'Home\CustomizeeBundle\Resources\contao\elements\HrElement',
     )
 ));
 

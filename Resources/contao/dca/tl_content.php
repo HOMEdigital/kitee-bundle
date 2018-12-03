@@ -30,7 +30,7 @@ try{
                 'hm-layout-limited-s'
             ),
             'default' => 'limited',
-            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
                 'tl_class' => 'w50 clr'
             ),
@@ -94,7 +94,7 @@ try{
                 'hm-step-outer-bottom-s'
             ),
             'default' => 'step-outer-bottom-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
                 'tl_class' => 'w50'
             ),
@@ -119,7 +119,25 @@ try{
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_container_start')
         ->addPaletteGroup('image', array('singleSRC'), 'hm_container_start', 2)
-        ->addPaletteGroup('layout', array('inColumn','hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom', 'hm_step_outer_top', 'hm_step_outer_bottom', 'hm_gap_inner'), 'hm_container_start', 3)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_container_start', 3)
+    ;
+
+    #-- anchor felder --------------------------------------------
+    $tl_content
+        ->addField('text', 'hm_anchor_id', array(
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50 clr'
+            ),
+        ))
+    ;
+
+    #-- container paletten --------------------------------------------
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_anchor')
+        ->addPaletteGroup('type_legend', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_anchor', 3)
+
     ;
 }catch(\Exception $e){
     var_dump($e);

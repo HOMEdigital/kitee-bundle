@@ -8,12 +8,12 @@
 
 namespace Home\CustomizeeBundle\Resources\contao\elements;
 
-class ContainerEndElement extends \ContentElement
+class HrElement extends \ContentElement
 {
     /**
      * @var string
      */
-    protected $strTemplate = 'cte_container_end';
+    protected $strTemplate = 'cte_hr';
 
     /**
      * @return string

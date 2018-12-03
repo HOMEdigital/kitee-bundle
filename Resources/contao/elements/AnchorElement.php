@@ -8,12 +8,12 @@
 
 namespace Home\CustomizeeBundle\Resources\contao\elements;
 
-class ContainerEndElement extends \ContentElement
+class AnchorElement extends \ContentElement
 {
     /**
      * @var string
      */
-    protected $strTemplate = 'cte_container_end';
+    protected $strTemplate = 'cte_anchor.html5';
 
     /**
      * @return string
