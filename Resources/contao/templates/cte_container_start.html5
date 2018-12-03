@@ -1,6 +1,6 @@
 <div class="<?= $this->class ?> hm-container">
     <?php if($this->singleSRC): ?>
-        <div class="container-img">
+        <div class="hm-container-img">
             <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, ''))->picture) ?>
         </div>
     <?php endif; ?>

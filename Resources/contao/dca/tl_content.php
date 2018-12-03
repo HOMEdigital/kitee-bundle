@@ -21,7 +21,7 @@ try{
         ->addPaletteGroup('invisible', array('invisible', 'guests', 'start', 'stop'), 'hm_kitee_content_base')
     ;
 
-    #-- container felder --------------------------------------------
+    #-- container --------------------------------------------
     $tl_content
         ->addField('select', 'hm_layout', array(
             'options' => array(
@@ -112,17 +112,16 @@ try{
                 'tl_class' => 'w50 clr'
             ),
         ))
-
+        ->mergeFieldSettings('singleSRC', 'eval', array('mandatory'=>false))
     ;
 
-    #-- container paletten --------------------------------------------
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_container_start')
         ->addPaletteGroup('image', array('singleSRC'), 'hm_container_start', 2)
         ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_container_start', 3)
     ;
 
-    #-- anchor felder --------------------------------------------
+    #-- anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
@@ -132,7 +131,6 @@ try{
         ))
     ;
 
-    #-- container paletten --------------------------------------------
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_anchor')
         ->addPaletteGroup('type_legend', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
