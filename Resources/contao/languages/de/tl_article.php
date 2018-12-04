@@ -8,6 +8,8 @@
 
 $moduleName = 'tl_article';
 
+#-- layout
+
 $GLOBALS['TL_LANG'][$moduleName]['layout_legend']       = 'Layoutbereich';
 
 $GLOBALS['TL_LANG'][$moduleName]['hm_layout']               = array('Layout', 'Definiert die Breite des Artikels');
@@ -48,3 +50,15 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-bottom-s']      = 'Abstand unten
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-l']             = 'Abstand oben & unten - large';
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-m']             = 'Abstand oben & unten - medium';
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-s']             = 'Abstand oben & unten - small';
+
+
+#-- tiles
+
+$GLOBALS['TL_LANG'][$moduleName]['tile_legend']     = 'Spalten & Kacheln';
+
+$GLOBALS['TL_LANG'][$moduleName]['hm_tile_rows']    = array('Spalten & Kacheln', 'Angabe, wie die Kindelemente des Artikels ausgegeben werden sollen.');
+$GLOBALS['TL_LANG'][$moduleName]['layout-row']         = 'Immer Spalten';
+$GLOBALS['TL_LANG'][$moduleName]['layout-gt-xs-row']   = 'Spalten > xs';
+$GLOBALS['TL_LANG'][$moduleName]['layout-gt-sm-row']   = 'Spalten > sm';
+$GLOBALS['TL_LANG'][$moduleName]['layout-gt-md-row']   = 'Spalten > md';
+

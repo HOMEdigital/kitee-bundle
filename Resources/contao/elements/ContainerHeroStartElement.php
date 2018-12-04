@@ -6,9 +6,11 @@
  * Time: 15:22
  */
 
-namespace Home\CustomizeeBundle\Resources\contao\elements;
+namespace Home\KiteeBundle\Resources\contao\elements;
 
-class ContainerStartElement extends \ContentElement
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
+
+class ContainerHeroStartElement extends \ContentElement
 {
     /**
      * @var string
@@ -42,23 +44,20 @@ class ContainerStartElement extends \ContentElement
      */
     private function generateFrontend()
     {
+        #-- add classes
+        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+            'stepOuterTop' => $this->hm_step_outer_top,
+            'stepOuterBottom' => $this->hm_step_outer_bottom
+        )));
+/*
         $this->Template->contentClasses = "";
-
         if ($this->hm_layout) {
             $this->Template->contentClasses .= " " . $this->hm_layout;
         }
-        if ($this->hm_design) {
-            $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_design));
-        }
-        if ($this->hm_step_inner && strpos($this->hm_step_inner, '-no') === false) {
-            $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_step_inner));
-        }
-        if ($this->hm_gap_inner && strpos($this->hm_gap_inner, '-no') === false) {
-            $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_gap_inner));
-        }
-        if ($this->hm_step_outer && strpos($this->hm_step_outer, '-no') === false) {
-            $this->objModel->classes = array_merge($this->objModel->classes, array($this->hm_step_outer));
-        }
+*/
+
+        #-- store the wrapper start; will be closed in end element
+        $GLOBALS['kitee']['container'] = 'containerHero';
     }
 
 }

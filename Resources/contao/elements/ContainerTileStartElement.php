@@ -8,12 +8,14 @@
 
 namespace Home\KiteeBundle\Resources\contao\elements;
 
-class AnchorElement extends \ContentElement
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
+
+class ContainerTileStartElement extends \ContentElement
 {
     /**
      * @var string
      */
-    protected $strTemplate = 'cte_anchor.html5';
+    protected $strTemplate = 'cte_container_start';
 
     /**
      * @return string
@@ -42,7 +44,13 @@ class AnchorElement extends \ContentElement
      */
     private function generateFrontend()
     {
-
+        #-- add classes
+        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+            'design' => $this->hm_design
+        )));
+        
+        #-- store the wrapper start; will be closed in end element
+        $GLOBALS['kitee']['container'] = 'containerTile';
     }
 
 }

@@ -6,7 +6,9 @@
  * Time: 15:22
  */
 
-namespace Home\CustomizeeBundle\Resources\contao\elements;
+namespace Home\KiteeBundle\Resources\contao\elements;
+
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
 
 class HrElement extends \ContentElement
 {
@@ -42,7 +44,11 @@ class HrElement extends \ContentElement
      */
     private function generateFrontend()
     {
-
+        #-- add classes
+        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+            'stepOuterTop' => $this->hm_step_outer_top,
+            'stepOuterBottom' => $this->hm_step_outer_bottom
+        )));
     }
 
 }

@@ -1,1 +1,1 @@
-<div class="hm-hr"></div>
+<div class="<?= $this->class ?>"></div>

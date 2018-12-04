@@ -8,7 +8,9 @@
  * Time: 14:47
  */
 
-namespace Home\CustomizeeBundle\Resources\contao\hooks;
+namespace Home\KiteeBundle\Resources\contao\hooks;
+
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
 use \Contao\ArticleModel;
 
 
@@ -19,32 +21,29 @@ class GetArticle
      */
     public function setLayoutClasses(ArticleModel $objRow)
     {
-        $classes = $objRow->__get('classes');
 
-        $hmLayout = $objRow->__get('hm_layout');
-        $hmDesign = $objRow->__get('hm_design');
-        $hmStepInnerTop = $objRow->__get('hm_step_inner_top');
-        $hmStepInnerBottom = $objRow->__get('hm_step_inner_bottom');
-        $hmStepOuterTop = $objRow->__get('hm_step_outer_top');
-        $hmStepOuterBottom = $objRow->__get('hm_step_outer_bottom');
+        $rowClasses = is_array($objRow->__get('classes'))  ? $objRow->__get('classes') : array();
 
-        if($hmLayout){
-            $classes[] = $hmLayout;
+        #-- add classes
+        $classes = array_merge($rowClasses, HomeKiteeHelper::getLayoutClasses(array(
+            'layout'            => $objRow->__get('hm_layout'),
+            'design'            => $objRow->__get('hm_design'),
+            'stepInnerTop'      => $objRow->__get('hm_step_inner_top'),
+            'stepInnerBottom'   => $objRow->__get('hm_step_inner_bottom'),
+            'stepOuterTop'      => $objRow->__get('hm_step_outer_top'),
+            'stepOuterBottom'   => $objRow->__get('hm_step_outer_bottom')
+        )));
+
+        #-- rows
+        if($objRow->__get('hm_tile_rows') == 'rows') {
+            $classes[] = 'hm-layout-rows';
+            $objRow->__set('insideClasses',   'hm-rows ' . $objRow->__get('hm_rows_screensize') . '  ' . $objRow->__get('hm_rows_size'));
         }
-        if($hmDesign){
-            $classes[] = $hmDesign;
-        }
-        if($hmStepInnerTop && strpos($hmStepInnerTop, '-no') === false){
-            $classes[] = $hmStepInnerTop;
-        }
-        if($hmStepInnerBottom && strpos($hmStepInnerBottom, '-no') === false){
-            $classes[] = $hmStepInnerBottom;
-        }
-        if($hmStepOuterTop && strpos($hmStepOuterTop, '-no') === false){
-            $classes[] = $hmStepOuterTop;
-        }
-        if($hmStepOuterBottom && strpos($hmStepOuterBottom, '-no') === false){
-            $classes[] = $hmStepOuterBottom;
+
+        #-- tiles
+        if($objRow->__get('hm_tile_rows') == 'tiles') {
+            $classes[] = 'hm-layout-tiles';
+            $objRow->__set('insideClasses',   'hm-layout-tiles ' . $objRow->__get('hm_tile_cols'));
         }
 
         $objRow->__set('classes', $classes);

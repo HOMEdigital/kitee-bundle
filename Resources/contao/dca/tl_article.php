@@ -9,9 +9,10 @@
 use Home\PearlsBundle\Resources\contao\Helper\Dca as Helper;
 
 try{
-    $tl_article = new Helper\DcaHelper('tl_article');
+    $moduleName = 'tl_article';
+    $tl_article = new Helper\DcaHelper($moduleName);
 
-    #-- container Felder -----------------------------------------------------------------------------------------------------
+    #-- layout -----------------------------------------------------------------------------------------------------
     $tl_article
         ->addField('select', 'hm_layout', array(
             'options' => array(
@@ -90,11 +91,78 @@ try{
         ))
     ;
 
-    #-- Container paletten -----------------------------------------------------------------------------------------------------
     $tl_article
         ->addPaletteGroup('layout', array('inColumn', 'hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'default', 2)
     ;
 
+    // +-- tiles ------------------------------------------------------------------------
+    $tl_article
+        ->addField('select', 'hm_tile_rows', array(
+            'options' => array(
+                'rows',
+                'tiles'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
+                'includeBlankOption' => true,
+                'submitOnChange' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->addField('select', 'hm_rows_screensize', array(
+            'options' => array(
+                'layout-row',
+                'layout-gt-xs-row',
+                'layout-gt-sm-row',
+                'layout-gt-md-row'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
+                'includeBlankOption' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->addField('select', 'hm_rows_size', array(
+            'options' => array(
+                'hm-rows-flex',
+                'hm-rows-10-90',
+                'hm-rows-20-80',
+                'hm-rows-30-70',
+                'hm-rows-40-60',
+                'hm-rows-60-40',
+                'hm-rows-70-30',
+                'hm-rows-80-20',
+                'hm-rows-90-10'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
+                'includeBlankOption' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->addField('select', 'hm_tile_cols', array(
+            'options' => array(
+                'hm-tiles-2cols',
+                'hm-tiles-3cols',
+                'hm-tiles-4cols'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
+                'includeBlankOption' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+    ;
+
+    $tl_article
+        ->addPaletteGroup('tile', array('hm_tile_rows'), 'default', 3)
+    ;
+
+
+    #-- define subpalettes
+    $GLOBALS['TL_DCA'][$moduleName]['palettes']['__selector__'][] = 'hm_tile_rows';
+    $GLOBALS['TL_DCA'][$moduleName]['subpalettes']['hm_tile_rows_rows'] = 'hm_rows_screensize, hm_rows_size';
+    $GLOBALS['TL_DCA'][$moduleName]['subpalettes']['hm_tile_rows_tiles'] = 'hm_tile_cols';
 
 }catch(\Exception $e){
     var_dump($e);

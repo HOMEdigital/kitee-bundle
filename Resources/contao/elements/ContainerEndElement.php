@@ -6,7 +6,7 @@
  * Time: 15:22
  */
 
-namespace Home\CustomizeeBundle\Resources\contao\elements;
+namespace Home\KiteeBundle\Resources\contao\elements;
 
 class ContainerEndElement extends \ContentElement
 {
@@ -42,7 +42,7 @@ class ContainerEndElement extends \ContentElement
      */
     private function generateFrontend()
     {
-
+        $GLOBALS['kitee']['container'] = '';
     }
 
 }

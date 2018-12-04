@@ -6,7 +6,7 @@
  * Time: 16:33
  */
 
-namespace Home\CustomizeeBundle\Resources\contao\dca;
+namespace Home\KiteeBundle\Resources\contao\dca;
 
 use Home\PearlsBundle\Resources\contao\Helper\Dca as Helper;
 
@@ -16,12 +16,54 @@ try{
 
     #-- a content base definition; can be copied for each content element ---------------------
     $tl_content
+        ->mergeFieldSettings('start','eval', array('tl_class' => 'w50 clr'))
         ->addPaletteGroup('type', array('type'), 'hm_kitee_content_base')
         ->addPaletteGroup('protected', array('protected'), 'hm_kitee_content_base')
         ->addPaletteGroup('invisible', array('invisible', 'guests', 'start', 'stop'), 'hm_kitee_content_base')
     ;
 
-    #-- container --------------------------------------------
+    #-- tile container --------------------------------------------
+    $tl_content
+        ->addField('select', 'hm_design', array(
+            'options' => array(),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->mergeFieldSettings('singleSRC', 'eval', array('mandatory'=>false))
+    ;
+
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_tile_container_start')
+        ->addPaletteGroup('image', array('singleSRC'), 'hm_tile_container_start', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_design'), 'hm_tile_container_start', 3)
+    ;
+
+    #-- anchor --------------------------------------------
+    $tl_content
+        ->addField('text', 'hm_anchor_id', array(
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50 clr'
+            ),
+        ))
+    ;
+
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_anchor')
+        ->addPaletteGroup('type_legend', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_anchor', 3)
+    ;
+
+    #-- hr --------------------------------------------
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_hr')
+        ->addPaletteGroup('layout', array('hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_hr', 2)
+    ;
+
+    #-- hero container --------------------------------------------
     $tl_content
         ->addField('select', 'hm_layout', array(
             'options' => array(
@@ -33,44 +75,6 @@ try{
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
                 'tl_class' => 'w50 clr'
-            ),
-        ))
-        ->addField('select', 'hm_design', array(
-            'options' => array(),
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50',
-                'includeBlankOption' => true,
-            ),
-        ))
-        ->addField('select', 'hm_step_inner_top', array(
-            'options' => array(
-                'options' => array(
-                    'hm-step-inner-top-no',
-                    'hm-step-inner-top-l',
-                    'hm-step-inner-top-m',
-                    'hm-step-inner-top-s'
-                ),
-            ),
-            'default' => 'step-inner-top-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50 clr'
-            ),
-        ))
-        ->addField('select', 'hm_step_inner_bottom', array(
-            'options' => array(
-                'options' => array(
-                    'hm-step-inner-bottom-no',
-                    'hm-step-inner-bottom-l',
-                    'hm-step-inner-bottom-m',
-                    'hm-step-inner-bottom-s'
-                ),
-            ),
-            'default' => 'step-inner-bottom-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50'
             ),
         ))
         ->addField('select', 'hm_step_outer_top', array(
@@ -99,43 +103,12 @@ try{
                 'tl_class' => 'w50'
             ),
         ))
-        ->addField('select', 'hm_gap_inner', array(
-            'options' => array(
-                'hm-gap-inner-no',
-                'hm-gap-inner-l',
-                'hm-gap-inner-m',
-                'hm-gap-inner-s',
-            ),
-            'default' => 'hm-gap-inner-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50 clr'
-            ),
-        ))
-        ->mergeFieldSettings('singleSRC', 'eval', array('mandatory'=>false))
     ;
 
     $tl_content
-        ->copyPalette('hm_kitee_content_base', 'hm_container_start')
-        ->addPaletteGroup('image', array('singleSRC'), 'hm_container_start', 2)
-        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_container_start', 3)
-    ;
-
-    #-- anchor --------------------------------------------
-    $tl_content
-        ->addField('text', 'hm_anchor_id', array(
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50 clr'
-            ),
-        ))
-    ;
-
-    $tl_content
-        ->copyPalette('hm_kitee_content_base', 'hm_anchor')
-        ->addPaletteGroup('type_legend', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
-        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_anchor', 3)
-
+        ->copyPalette('hm_kitee_content_base', 'hm_hero_container_start')
+        ->addPaletteGroup('image', array('singleSRC'), 'hm_hero_container_start', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_hero_container_start', 3)
     ;
 }catch(\Exception $e){
     var_dump($e);

@@ -9,8 +9,10 @@
  *
  */
 
-// +-- container element ----------------------------------------------
+$GLOBALS['TL_LANG']['CTE']['hm_hero_container']          = 'Hero Container';
+$GLOBALS['TL_LANG']['CTE']['hm_hero_container_start']    = array('Hero Container Öffnen', 'Öffnendes Element für einen Hero-Container');
+$GLOBALS['TL_LANG']['CTE']['hm_hero_container_end']      = array('Hero Container Schliessen', 'Schliessendes Element für einen Hero-Container');
 
-$GLOBALS['TL_LANG']['CTE']['hm_container']          = 'Container';
-$GLOBALS['TL_LANG']['CTE']['hm_container_start']    = array('Container Öffnen', 'Öffnendes Element für einen Container');
-$GLOBALS['TL_LANG']['CTE']['hm_container_end']      = array('Container Schliessen', 'Schliessendes Element für einen Container');
+$GLOBALS['TL_LANG']['CTE']['hm_tile_container']          = 'Kachel Container';
+$GLOBALS['TL_LANG']['CTE']['hm_tile_container_start']    = array('Kachel Container Öffnen', 'Öffnendes Element für einen Kachel-Container');
+$GLOBALS['TL_LANG']['CTE']['hm_tile_container_end']      = array('Kachel Container Schliessen', 'Schliessendes Element für einen Kachel-Container');
