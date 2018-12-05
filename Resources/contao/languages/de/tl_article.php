@@ -56,9 +56,28 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-s']             = 'Abstand oben 
 
 $GLOBALS['TL_LANG'][$moduleName]['tile_legend']     = 'Spalten & Kacheln';
 
-$GLOBALS['TL_LANG'][$moduleName]['hm_tile_rows']    = array('Spalten & Kacheln', 'Angabe, wie die Kindelemente des Artikels ausgegeben werden sollen.');
+$GLOBALS['TL_LANG'][$moduleName]['hm_tile_rows']        = array('Spalten & Kacheln', 'Angabe, wie die Kindelemente des Artikels ausgegeben werden sollen.');
+$GLOBALS['TL_LANG'][$moduleName]['rows']                = "Spalten";
+$GLOBALS['TL_LANG'][$moduleName]['tiles']               = "Kacheln";
+
+$GLOBALS['TL_LANG'][$moduleName]['hm_rows_screensize'] = array('Bildschrimgrösse', 'Ab welcher Bildschirmgrösse sollen die Spalten angewendet werden');
 $GLOBALS['TL_LANG'][$moduleName]['layout-row']         = 'Immer Spalten';
 $GLOBALS['TL_LANG'][$moduleName]['layout-gt-xs-row']   = 'Spalten > xs';
 $GLOBALS['TL_LANG'][$moduleName]['layout-gt-sm-row']   = 'Spalten > sm';
 $GLOBALS['TL_LANG'][$moduleName]['layout-gt-md-row']   = 'Spalten > md';
 
+$GLOBALS['TL_LANG'][$moduleName]['hm_rows_size']    = array('Spaltenaufteilung', 'Wie sollen die Spalten aufgeteilt werden');
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-flex']    = 'Alle Spalten sind gleich gross';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-10-90']   = '10:90';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-20-80']   = '20:80';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-30-70']   = '30:70';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-40-60']   = '40:60';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-60-40']   = '60:40';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-70-30']   = '70:30';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-80-20']   = '80:20';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-90-10']   = '90:10';
+
+$GLOBALS['TL_LANG'][$moduleName]['hm_tile_cols']        = array('Spaltenanzahl', 'Wie viele Spalten sollen verwendet werden. Die Anzahl der Spalten bezieht sich auf eine MD-Auflösung');
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2cols']      = '2-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3cols']      = '3-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-4cols']      = '4-spaltig';
