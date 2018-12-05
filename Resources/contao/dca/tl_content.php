@@ -32,6 +32,18 @@ try{
                 'includeBlankOption' => true,
             ),
         ))
+        ->addField('select', 'hm_tile_item_big', array(
+            'options' => array(
+                'hm-tiles-1col-item',
+                'hm-tiles-2col-item',
+                'hm-tiles-3col-item'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
         ->mergeFieldSettings('singleSRC', 'eval', array('mandatory'=>false))
     ;
 
@@ -39,6 +51,13 @@ try{
         ->copyPalette('hm_kitee_content_base', 'hm_tile_container_start')
         ->addPaletteGroup('image', array('singleSRC'), 'hm_tile_container_start', 2)
         ->addPaletteGroup('layout', array('inColumn', 'hm_design'), 'hm_tile_container_start', 3)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_tile_container_start', 4)
+    ;
+
+    // -- Feld in andere content elemente integrieren
+    $tl_content
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'text', 4)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'image', 4)
     ;
 
     #-- anchor --------------------------------------------

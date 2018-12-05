@@ -60,3 +60,10 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-no']            = 'Kein Abstand';
 $GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-l']             = 'Abstand links & rechts - large';
 $GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-m']             = 'Abstand links & rechts - medium';
 $GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-s']             = 'Abstand links & rechts - small';
+
+#-- tile field -----------------------------
+$GLOBALS['TL_LANG'][$moduleName]['tiles_legend']            = 'Einstellungen für Kacheln & Spalten';
+$GLOBALS['TL_LANG'][$moduleName]['hm_tile_item_big']        = array('Grosse Kachel', 'Die Kachel über mehrere Spalten anzeigen. Funktioniert nur, wenn im Artikel "Kachel" ausgewählt wurde');
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-1col-item']      = 'Alle Spalten';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2col-item']      = '2-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3col-item']      = '3-spaltig';

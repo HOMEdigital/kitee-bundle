@@ -30,6 +30,9 @@ class GetContentElement
                 if ($article->hm_tile_rows == 'tiles') {
                     // $classes[] = 'flex';
                     $classes[] = 'hm-tile';
+                    if ($objRow->__get('hm_tile_item_big')) {
+                        $classes[] = $objRow->__get('hm_tile_item_big');
+                    }
                     $html = '<div class="hm-tiles-sizer"></div><div class="hm-tiles-gutter-sizer"></div>';
                 }
                 $objRow->__set('classes', $classes);
