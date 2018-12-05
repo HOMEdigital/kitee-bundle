@@ -79,5 +79,8 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-rows-90-10']   = '90:10';
 
 $GLOBALS['TL_LANG'][$moduleName]['hm_tile_cols']        = array('Spaltenanzahl', 'Wie viele Spalten sollen verwendet werden. Die Anzahl der Spalten bezieht sich auf eine MD-Auflösung');
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2cols']      = '2-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2cols-full'] = '2-spaltig + gesamte Breite';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3cols']      = '3-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3cols-full'] = '3-spaltig + gesamte Breite';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-4cols']      = '4-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['hm-tiles-4cols-full'] = '4-spaltig + gesamte Breite';

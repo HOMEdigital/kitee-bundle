@@ -143,8 +143,11 @@ try{
         ->addField('select', 'hm_tile_cols', array(
             'options' => array(
                 'hm-tiles-2cols',
+                'hm-tiles-2cols-full',
                 'hm-tiles-3cols',
-                'hm-tiles-4cols'
+                'hm-tiles-3cols-full',
+                'hm-tiles-4cols',
+                'hm-tiles-4cols-full'
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
