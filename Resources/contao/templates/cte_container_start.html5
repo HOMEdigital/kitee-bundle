@@ -1,7 +1,9 @@
 <div class="<?= $this->class ?>">
     <?php if($this->singleSRC): ?>
         <div class="hm-container-img">
-            <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, ''))->picture) ?>
+            <div class="hm-container-img-inside">
+                <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, ''))->picture) ?>
+            </div>
         </div>
     <?php endif; ?>
     <div class="hm-container-content <?= $this->contentClasses ?>">
