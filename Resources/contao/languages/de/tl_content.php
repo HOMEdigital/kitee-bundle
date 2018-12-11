@@ -67,3 +67,7 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_tile_item_big']        = array('Grosse Kach
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-1col-item']      = 'Alle Spalten';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2col-item']      = '2-spaltig';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3col-item']      = '3-spaltig';
+
+#-- tile ----------------------------------------
+$GLOBALS['TL_LANG'][$moduleName]['hm_title']        = array('Überschrift', 'Überschrift der Kachel');
+

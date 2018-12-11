@@ -21,6 +21,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
     'hm_tile_container' => array(
         'hm_tile_container_start'   => 'Home\KiteeBundle\Resources\contao\elements\ContainerTileStartElement',
         'hm_tile_container_end'     => 'Home\KiteeBundle\Resources\contao\elements\ContainerEndElement',
+        'hm_tile'                   => 'Home\KiteeBundle\Resources\contao\elements\TileElement',
     ),
     'hm_kitee' => array(
         'hm_hr'     => 'Home\KiteeBundle\Resources\contao\elements\HrElement',

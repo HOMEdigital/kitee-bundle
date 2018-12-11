@@ -129,6 +129,24 @@ try{
         ->addPaletteGroup('image', array('singleSRC'), 'hm_hero_container_start', 2)
         ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_hero_container_start', 3)
     ;
+
+    #-- tile --------------------------------------------
+    $tl_content
+        ->addField('text', 'hm_title', array(
+            'eval' => array(
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->mergeFieldSettings('text', 'eval', array('mandatory'=>false, 'tl_class'=>'clr'))
+        ->mergeFieldSettings('url', 'eval', array('mandatory'=>false))
+    ;
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_tile')
+        ->addPaletteGroup('image', array('singleSRC'), 'hm_tile', 2)
+        ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_tile', 3)
+        ->addPaletteGroup('link', array('url','linkTitle'), 'hm_tile', 4)
+    ;
+
 }catch(\Exception $e){
     var_dump($e);
 }

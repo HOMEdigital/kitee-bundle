@@ -1,0 +1,21 @@
+<div class="<?= $this->class ?>">
+    <?php if ($this->singleSrc) : ?>
+        <div class="hm-tile-image">
+            <div class="image_container">
+                {{picture::<?= $this->singleSrc ?>}}
+                <?php // $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($portfolio['teaserpic'], array(null, null, ''))->picture) ?>
+            </div>
+        </div>
+    <?php endif; ?>
+    <div class="hm-tile-content">
+        <?php if ($this->hm_title): ?><h3 class="hm-tile-title"><?= $this->hm_title ?></h3><?php endif; ?>
+        <?php if ($this->text): ?><div class="hm-tile-text"><?= $this->text ?></div><?php endif; ?>
+        <?php if ($this->url): ?>
+            <div class="hm-tile-buttons">
+                <div>
+                    <a href="<?= $this->url ?>" class="btn-tile"><?= $this->linkTitle ?></a>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
