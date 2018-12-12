@@ -5,7 +5,7 @@
                 <?php if (is_array($this->multiImages) && count($this->multiImages) == 1) :
                     echo $this->insert('picture_default', $this->multiImages[0]->picture);
                 elseif(is_array($this->multiImages) && count($this->multiImages) > 1) :
-                    ?><div class="slick"><?php
+                    ?><div class="slick-slider"><?php
                     foreach($this->multiImages as $picture) :
                         ?><div><?= $this->insert('picture_default', $picture->picture) ?></div>
                     <?php endforeach; ?>
