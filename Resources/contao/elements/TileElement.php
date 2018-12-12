@@ -8,6 +8,8 @@
 
 namespace Home\KiteeBundle\Resources\contao\elements;
 
+use Home\PearlsBundle\Resources\contao\Helper\DataHelper;
+
 class TileElement extends \ContentElement
 {
     /**
@@ -42,7 +44,9 @@ class TileElement extends \ContentElement
      */
     private function generateFrontend()
     {
-        
+        if ($this->multiSRC) {
+            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, array(null, null, ''));
+        }
     }
 
 }

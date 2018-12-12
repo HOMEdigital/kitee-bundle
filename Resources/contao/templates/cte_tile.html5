@@ -1,9 +1,16 @@
 <div class="<?= $this->class ?>">
-    <?php if ($this->singleSrc) : ?>
+    <?php if ($this->multiSRC) : ?>
         <div class="hm-tile-image">
             <div class="image_container">
-                {{picture::<?= $this->singleSrc ?>}}
-                <?php // $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($portfolio['teaserpic'], array(null, null, ''))->picture) ?>
+                <?php if (is_array($this->multiImages) && count($this->multiImages) == 1) :
+                    echo $this->insert('picture_default', $this->multiImages[0]->picture);
+                elseif(is_array($this->multiImages) && count($this->multiImages) > 1) :
+                    ?><div class="slick"><?php
+                    foreach($this->multiImages as $picture) :
+                        ?><div><?= $this->insert('picture_default', $picture->picture) ?></div>
+                    <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     <?php endif; ?>
