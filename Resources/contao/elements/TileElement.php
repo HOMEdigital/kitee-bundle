@@ -31,9 +31,10 @@ class TileElement extends \ContentElement
     protected function compile()
     {
         if (TL_MODE == 'BE') {
-            $this->strTemplate          = 'be_wildcard';
+            $this->strTemplate          = 'list_image_title';
             $this->Template             = new \BackendTemplate($this->strTemplate);
-            $this->Template->title      = $this->headline;
+            $this->Template->title      = $this->hm_title;
+            $this->Template->image      = DataHelper::getMultiImgObjs($this->multiSRC, array('120', '120'))[0];
         } else {
             $this->generateFrontend();
         }
