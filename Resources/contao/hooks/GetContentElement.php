@@ -10,6 +10,7 @@
 
 namespace Home\KiteeBundle\Resources\contao\hooks;
 
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
 use \Contao\ArticleModel;
 
 
@@ -18,7 +19,7 @@ class GetContentElement
     /**
      * @param \Contao\ArticleModel $objRow
      */
-    public function setLayoutClasses(\ContentModel $objRow, $strBuffer)
+    public function setLayoutClasses(\ContentModel $objRow, $strBuffer, $objElement)
     {
         #-- get article
         if ($objRow->pid > 0 && $objRow->ptable == 'tl_article') {
@@ -27,12 +28,12 @@ class GetContentElement
             if ($article->hm_tile_rows != '' && ($GLOBALS['kitee']['container'] == "" || $objRow->type == 'hm_tile_container_start')) {
                 $html = "";
                 $classes = is_array($objRow->__get('classes'))  ? $objRow->__get('classes') : array();
+                if ($objRow->__get('hm_tile_item_big')) {
+                    $classes[] = $objRow->__get('hm_tile_item_big');
+                }
                 if ($article->hm_tile_rows == 'tiles') {
                     // $classes[] = 'flex';
                     $classes[] = 'hm-tile';
-                    if ($objRow->__get('hm_tile_item_big')) {
-                        $classes[] = $objRow->__get('hm_tile_item_big');
-                    }
                     $html = '<div class="hm-tiles-sizer"></div><div class="hm-tiles-gutter-sizer"></div>';
                 }
                 $objRow->__set('classes', $classes);

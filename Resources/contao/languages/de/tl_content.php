@@ -63,10 +63,11 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-s']             = 'Abstand links 
 
 #-- tile field -----------------------------
 $GLOBALS['TL_LANG'][$moduleName]['tiles_legend']            = 'Einstellungen für Kacheln & Spalten';
-$GLOBALS['TL_LANG'][$moduleName]['hm_tile_item_big']        = array('Grosse Kachel', 'Die Kachel über mehrere Spalten anzeigen. Funktioniert nur, wenn im Artikel "Kachel" ausgewählt wurde');
+$GLOBALS['TL_LANG'][$moduleName]['hm_tile_item_big']        = array('Spalten übergreifend', 'Das Element soll über mehrere Spalten angezeigt werden');
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-1col-item']      = 'Alle Spalten';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2col-item']      = '2-spaltig';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3col-item']      = '3-spaltig';
+$GLOBALS['TL_LANG'][$moduleName]['flex-100']                = 'Alle Spalten';
 
 #-- tile ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_title']        = array('Überschrift', 'Überschrift der Kachel');

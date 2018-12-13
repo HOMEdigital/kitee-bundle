@@ -33,12 +33,8 @@ try{
             ),
         ))
         ->addField('select', 'hm_tile_item_big', array(
-            'options' => array(
-                'hm-tiles-1col-item',
-                'hm-tiles-2col-item',
-                'hm-tiles-3col-item'
-            ),
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'options_callback'  => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getItemBigOptions'),
+            'reference'         => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
                 'tl_class' => 'w50',
                 'includeBlankOption' => true,
@@ -149,4 +145,36 @@ try{
 
 }catch(\Exception $e){
     var_dump($e);
+}
+
+
+/**
+ * Provide miscellaneous methods that are used by the data configuration array.
+ */
+class tl_content extends \Backend
+{
+    public function getItemBigOptions($element)
+    {
+        $tileOptions = array(
+            'hm-tiles-1col-item',
+            'hm-tiles-2col-item',
+            'hm-tiles-3col-item'
+        );
+
+        $rowOptions = array(
+            'flex-100'
+        );
+
+        $ce = \ContentModel::findById($element->id);
+        if ($ce) {
+            if ($ce->pid > 0 && $ce->ptable == 'tl_article') {
+                $article = \ArticleModel::findById($ce->pid);
+                if($article) {
+                    return ($article->hm_tile_rows == 'tiles') ? $tileOptions : $rowOptions;
+                }
+            }
+        }
+
+        return '';
+    }
 }
