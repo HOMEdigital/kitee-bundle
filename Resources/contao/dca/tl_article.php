@@ -129,6 +129,7 @@ try{
                 'hm-rows-20-80',
                 'hm-rows-30-70',
                 'hm-rows-40-60',
+                'hm-rows-50-50',
                 'hm-rows-60-40',
                 'hm-rows-70-30',
                 'hm-rows-80-20',

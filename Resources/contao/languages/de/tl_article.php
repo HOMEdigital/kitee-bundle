@@ -72,6 +72,7 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-rows-10-90']   = '10:90';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-20-80']   = '20:80';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-30-70']   = '30:70';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-40-60']   = '40:60';
+$GLOBALS['TL_LANG'][$moduleName]['hm-rows-50-50']   = '50:50';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-60-40']   = '60:40';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-70-30']   = '70:30';
 $GLOBALS['TL_LANG'][$moduleName]['hm-rows-80-20']   = '80:20';
