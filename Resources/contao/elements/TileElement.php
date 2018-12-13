@@ -48,6 +48,10 @@ class TileElement extends \ContentElement
         if ($this->multiSRC) {
             $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, array(null, null, ''));
         }
-    }
 
+        #-- add classes
+        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+            'design' => $this->hm_design
+        )));
+    }
 }

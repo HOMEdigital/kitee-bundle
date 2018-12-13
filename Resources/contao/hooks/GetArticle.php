@@ -21,7 +21,7 @@ class GetArticle
      */
     public function setLayoutClasses(ArticleModel $objRow)
     {
-
+        $insideClasses = array();
         $rowClasses = is_array($objRow->__get('classes'))  ? $objRow->__get('classes') : array();
 
         #-- add classes
@@ -37,15 +37,22 @@ class GetArticle
         #-- rows
         if($objRow->__get('hm_tile_rows') == 'rows') {
             $classes[] = 'hm-layout-rows';
-            $objRow->__set('insideClasses',   'hm-rows ' . $objRow->__get('hm_rows_screensize') . '  ' . $objRow->__get('hm_rows_size'));
+
+            $insideClasses[] = 'hm-rows';
+            $insideClasses[] = $objRow->__get('hm_rows_screensize');
+            $insideClasses[] = $objRow->__get('hm_rows_size');
         }
 
         #-- tiles
         if($objRow->__get('hm_tile_rows') == 'tiles') {
             $classes[] = 'hm-layout-tiles';
-            $objRow->__set('insideClasses',   'hm-layout-tiles ' . $objRow->__get('hm_tile_cols'));
+
+            $insideClasses[] = 'hm-layout-tiles';
+            $insideClasses[] = $objRow->__get('hm_tile_cols');
+            $insideClasses[] = $objRow->__get('hm_tile_height');
         }
 
         $objRow->__set('classes', $classes);
+        $objRow->__set('insideClasses', implode(' ', $insideClasses));
     }
 }
