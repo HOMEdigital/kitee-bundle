@@ -45,8 +45,6 @@ class GetArticle
 
         #-- tiles
         if($objRow->__get('hm_tile_rows') == 'tiles') {
-            $classes[] = 'hm-layout-tiles';
-
             $insideClasses[] = 'hm-layout-tiles';
             $insideClasses[] = $objRow->__get('hm_tile_cols');
             $insideClasses[] = $objRow->__get('hm_tile_height');
