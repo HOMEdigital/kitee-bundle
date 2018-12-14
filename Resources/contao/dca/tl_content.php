@@ -141,6 +141,7 @@ try{
         ->addPaletteGroup('image', array('multiSRC','sortBy'), 'hm_tile', 2)
         ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_tile', 3)
         ->addPaletteGroup('link', array('url','linkTitle'), 'hm_tile', 4)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_tile', 5)
     ;
 
 }catch(\Exception $e){
