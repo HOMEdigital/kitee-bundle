@@ -144,7 +144,6 @@ try{
         ->addField('select', 'hm_tile_cols', array(
             'options' => array(
                 'hm-tiles-2cols',
-                'hm-tiles-2cols-full',
                 'hm-tiles-3cols',
                 'hm-tiles-3cols-full',
                 'hm-tiles-4cols',
@@ -153,6 +152,22 @@ try{
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
                 'includeBlankOption' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->addField('select', 'hm_tile_height', array(
+            'options' => array(
+                'hm-tiles-height-different',
+                'hm-tiles-height-fixed',
+                'hm-tiles-height-1-1',
+                'hm-tiles-height-16-9',
+                'hm-tiles-height-4-3',
+                'hm-tiles-height-3-2',
+                'hm-tiles-height-8-5'
+            ),
+            'default' => 'hm-tiles-height-different',
+            'reference' => &$GLOBALS['TL_LANG']['tl_article'],
+            'eval' => array(
                 'tl_class' => 'w50'
             ),
         ))
