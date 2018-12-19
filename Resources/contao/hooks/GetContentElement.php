@@ -93,6 +93,30 @@ class GetContentElement
                         }
                     }
 
+                    // +-- 5 spaltig
+                    if ($article->hm_tile_cols == 'hm-tiles-5cols') {
+                        if ($objRow->__get('hm_tile_item_big') == 'hm-tiles-1col-item') {
+                            $tile_classes[] = 'flex-100';
+                        } else if ($objRow->__get('hm_tile_item_big') == 'hm-tiles-2col-item') {
+                            $tile_classes = array_merge($tile_classes, array('flex-xs-100', 'flex-sm-80', 'flex-gt-sm-40'));
+                        } else if ($objRow->__get('hm_tile_item_big') == 'hm-tiles-3col-item') {
+                            $tile_classes = array_merge($tile_classes, array('flex-xs-100', 'flex-sm-100', 'flex-gt-sm-60'));
+                        } else {
+                            $tile_classes = array_merge($tile_classes, array('flex-xs-50', 'flex-sm-40', 'flex-gt-sm-20'));
+                        }
+                    }
+
+                    // +-- 5 spaltig
+                    if ($article->hm_tile_cols == 'hm-tiles-6cols') {
+                        if ($objRow->__get('hm_tile_item_big') == 'hm-tiles-1col-item') {
+                            $tile_classes[] = 'flex-100';
+                        } else if ($objRow->__get('hm_tile_item_big') == 'hm-tiles-2col-item') {
+                            $tile_classes = array_merge($tile_classes, array('flex-xs-100', 'flex-sm-80', 'flex-gt-sm-33'));
+                        } else {
+                            $tile_classes = array_merge($tile_classes, array('flex-xs-50', 'flex-sm-30', 'flex-16'));
+                        }
+                    }
+
                     $tile_classes[] = $objRow->__get('hm_tile_item_big');
                 }
 
