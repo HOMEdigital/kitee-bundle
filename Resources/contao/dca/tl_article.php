@@ -147,7 +147,9 @@ try{
                 'hm-tiles-3cols',
                 'hm-tiles-3cols-full',
                 'hm-tiles-4cols',
-                'hm-tiles-4cols-full'
+                'hm-tiles-4cols-full',
+                'hm-tiles-5cols',
+                'hm-tiles-6cols'
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
