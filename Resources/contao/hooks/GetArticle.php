@@ -50,6 +50,12 @@ class GetArticle
             $insideClasses[] = 'layout-row';
         }
 
+        #-- tiles isotope
+        if($objRow->__get('hm_tile_rows') == 'tiles_isotope') {
+            $insideClasses[] = $objRow->__get('hm_tile_cols');
+            $insideClasses[] =  'hm-layout-isotiles';
+        }
+
         $objRow->__set('classes', $classes);
         $objRow->__set('insideClasses', implode(' ', $insideClasses));
     }

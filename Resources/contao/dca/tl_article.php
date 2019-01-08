@@ -100,7 +100,8 @@ try{
         ->addField('select', 'hm_tile_rows', array(
             'options' => array(
                 'rows',
-                'tiles'
+                'tiles',
+                'tiles_isotope'
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
@@ -184,6 +185,7 @@ try{
     $GLOBALS['TL_DCA'][$moduleName]['palettes']['__selector__'][] = 'hm_tile_rows';
     $GLOBALS['TL_DCA'][$moduleName]['subpalettes']['hm_tile_rows_rows'] = 'hm_rows_screensize, hm_rows_size';
     $GLOBALS['TL_DCA'][$moduleName]['subpalettes']['hm_tile_rows_tiles'] = 'hm_tile_cols';
+    $GLOBALS['TL_DCA'][$moduleName]['subpalettes']['hm_tile_rows_tiles_isotope'] = 'hm_tile_cols';
 
 }catch(\Exception $e){
     var_dump($e);

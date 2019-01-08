@@ -59,6 +59,7 @@ $GLOBALS['TL_LANG'][$moduleName]['tile_legend']     = 'Spalten & Kacheln';
 $GLOBALS['TL_LANG'][$moduleName]['hm_tile_rows']        = array('Spalten & Kacheln', 'Angabe, wie die Kindelemente des Artikels ausgegeben werden sollen.');
 $GLOBALS['TL_LANG'][$moduleName]['rows']                = "Spalten";
 $GLOBALS['TL_LANG'][$moduleName]['tiles']               = "Kacheln";
+$GLOBALS['TL_LANG'][$moduleName]['tiles_isotope']       = "Kacheln mit isotope";
 
 $GLOBALS['TL_LANG'][$moduleName]['hm_rows_screensize'] = array('Bildschrimgrösse', 'Ab welcher Bildschirmgrösse sollen die Spalten angewendet werden');
 $GLOBALS['TL_LANG'][$moduleName]['layout-row']         = 'Immer Spalten';
