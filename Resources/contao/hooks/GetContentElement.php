@@ -116,6 +116,17 @@ class GetContentElement
                         $tile_classes[] = $tileOrRowClass;
                         $addToHtmlStart = '<div class="' . implode(' ', $tile_classes) . '"><div class="' . $tileOrRowClass . '-inside">';
 
+                        #-- wenn dem Bild eine Grösse zugewiesen worden ist, dann darf es nicht mit cover (also ausfüllend) angezeigt werden
+                        #-- sondern mit der angegebenen Grösse
+                        if ($objRow->type == 'image') {
+                            $size = deserialize($objRow->size);
+                            if ($size[2] == '') {
+                                $classes[] = 'container-img-cover';
+                            } else {
+                                $classes[] = 'container-img-contain';
+                            }
+                        }
+
                         $objRow->__set('classes', $classes);
                         $objRow->__set('htmlStart', $addToHtmlStart);
                         $objRow->__set('htmlEnd', $addToHtmlEnd);
