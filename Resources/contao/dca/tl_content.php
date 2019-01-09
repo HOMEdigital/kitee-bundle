@@ -68,7 +68,7 @@ try{
 
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_anchor')
-        ->addPaletteGroup('type_legend', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
+        ->addPaletteGroup('anchor', array('type', 'hm_anchor_id'), 'hm_anchor', 2)
         ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_anchor', 3)
     ;
 

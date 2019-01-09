@@ -72,3 +72,6 @@ $GLOBALS['TL_LANG'][$moduleName]['flex-100']                = 'Alle Spalten';
 #-- tile ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_title']        = array('Überschrift', 'Überschrift der Kachel');
 
+#-- anchor ----------------------------------------
+$GLOBALS['TL_LANG'][$moduleName]['hm_anchor_id']        = array('Anker-Id', 'ID des Ankers, wird benötigt, damit man zu diesem Anker springen kann');
+$GLOBALS['TL_LANG'][$moduleName]['anchor_legend']       = 'Anker Einstellungen';
