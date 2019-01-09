@@ -20,3 +20,4 @@ $GLOBALS['TL_LANG']['CTE']['hm_tile']                    = array('Kachel Element
 
 $GLOBALS['TL_LANG']['CTE']['hm_kitee']      = 'Kitee';
 $GLOBALS['TL_LANG']['CTE']['hm_hr']         = array('Linie', 'Horizontale Linie');
+$GLOBALS['TL_LANG']['CTE']['hm_anchor']     = array('Anker', 'Setzt einen Anker');

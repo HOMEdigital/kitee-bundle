@@ -25,6 +25,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
     ),
     'hm_kitee' => array(
         'hm_hr'     => 'Home\KiteeBundle\Resources\contao\elements\HrElement',
+        'hm_anchor'     => 'Home\KiteeBundle\Resources\contao\elements\AnchorElement',
     )
 ));
 
