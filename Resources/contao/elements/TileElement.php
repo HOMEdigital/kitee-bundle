@@ -9,6 +9,7 @@
 namespace Home\KiteeBundle\Resources\contao\elements;
 
 use Home\PearlsBundle\Resources\contao\Helper\DataHelper;
+use Home\KiteeBundle\Resources\HomeKiteeHelper;
 
 class TileElement extends \ContentElement
 {
