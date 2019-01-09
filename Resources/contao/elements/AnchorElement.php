@@ -13,7 +13,7 @@ class AnchorElement extends \ContentElement
     /**
      * @var string
      */
-    protected $strTemplate = 'cte_anchor.html5';
+    protected $strTemplate = 'cte_anchor';
 
     /**
      * @return string
