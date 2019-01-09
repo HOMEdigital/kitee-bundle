@@ -7,3 +7,4 @@
         </div>
     <?php endif; ?>
     <div class="hm-container-content <?= $this->contentClasses ?>">
+        <div class="hm-container-content-inside">
