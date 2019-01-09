@@ -83,30 +83,40 @@ class GetContentElement
                             }
                             $htmlSizerGutter = '<div class="hm-tiles-sizer"></div><div class="hm-tiles-gutter-sizer"></div>';
                         } else if ($article->hm_tile_rows == 'rows') {
-                            #-- ermittle ab welcher Bildschirmgrösse die Spalten eingesetzt werden sollen
-                            switch ($article->hm_rows_screensize) {
-                                case 'layout-gt-xs-row':
-                                    $rowStart = 'gt-xs-';
-                                    break;
-                                case 'layout-gt-sm-row':
-                                    $rowStart = 'gt-sm-';
-                                    break;
-                                case 'layout-gt-md-row':
-                                    $rowStart = 'gt-md-';
-                                    break;
-                                default:
-                                    $rowStart = '';
-                            }
+                            #-- wenn Spalten nicht gleich gross sind
+                            if ($article->hm_rows_size != 'hm-rows-flex') {
+                                #-- ermittle ab welcher Bildschirmgrösse die Spalten eingesetzt werden sollen
+                                switch ($article->hm_rows_screensize) {
+                                    case 'layout-gt-xs-row':
+                                        $rowStart = 'gt-xs-';
+                                        break;
+                                    case 'layout-gt-sm-row':
+                                        $rowStart = 'gt-sm-';
+                                        break;
+                                    case 'layout-gt-md-row':
+                                        $rowStart = 'gt-md-';
+                                        break;
+                                    default:
+                                        $rowStart = '';
+                                }
 
-                            #-- weise die entsprechenden Style-Klassen dem CE zu
-                            if ($objRow->__get('hm_tile_item_big')) {
-                                $tile_classes[] = 'flex-' . $rowStart . '100';
-                            } else {
-                                $rowSize = explode('-', $article->hm_rows_size);
-                                if ($GLOBALS['kitee']['ce_number'] % 2 == 0) {
-                                    $tile_classes[] = 'flex-' . $rowStart . $rowSize[3];
+                                #-- weise die entsprechenden Style-Klassen dem CE zu
+                                if ($objRow->__get('hm_tile_item_big')) {
+                                    $tile_classes[] = 'flex-' . $rowStart . '100';
                                 } else {
-                                    $tile_classes[] = 'flex-' . $rowStart . $rowSize[2];
+                                    $rowSize = explode('-', $article->hm_rows_size);
+                                    if ($GLOBALS['kitee']['ce_number'] % 2 == 0) {
+                                        $tile_classes[] = 'flex-' . $rowStart . $rowSize[3];
+                                    } else {
+                                        $tile_classes[] = 'flex-' . $rowStart . $rowSize[2];
+                                    }
+                                }
+                            } else {
+                                #-- weise die entsprechenden Style-Klassen dem CE zu
+                                if ($objRow->__get('hm_tile_item_big')) {
+                                    $tile_classes[] = 'flex-' . $rowStart . '100';
+                                } else {
+                                    $tile_classes[] = 'flex';
                                 }
                             }
                         }
@@ -118,7 +128,7 @@ class GetContentElement
 
                         #-- wenn dem Bild eine Grösse zugewiesen worden ist, dann darf es nicht mit cover (also ausfüllend) angezeigt werden
                         #-- sondern mit der angegebenen Grösse
-                        if ($objRow->type == 'image') {
+                        if ($objRow->type == 'image' || $objRow->type == 'hyperlink') {
                             $size = deserialize($objRow->size);
                             if ($size[2] == '') {
                                 $classes[] = 'container-img-cover';
@@ -268,7 +278,7 @@ class GetContentElement
                 return array('flex-xs-100', 'flex-sm-100', 'flex-gt-sm-60');
                 break;
             default:
-                return array('flex-xs-50', 'flex-sm-40', 'flex-gt-sm-20');
+                return array('flex-xs-50', 'flex-sm-33', 'flex-gt-sm-20');
         }
     }
 
@@ -285,7 +295,7 @@ class GetContentElement
                 return array('flex-xs-100', 'flex-sm-50', 'flex-gt-sm-25');
                 break;
             default:
-                return array('flex-xs-50', 'flex-sm-30', 'flex-16');
+                return array('flex-xs-33', 'flex-sm-25', 'flex-gt-sm-16');
         }
     }
 }
