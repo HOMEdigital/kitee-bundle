@@ -44,18 +44,6 @@ class ContainerHeroStartElement extends \ContentElement
      */
     private function generateFrontend()
     {
-        #-- add classes
-        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
-            'stepOuterTop' => $this->hm_step_outer_top,
-            'stepOuterBottom' => $this->hm_step_outer_bottom
-        )));
-/*
-        $this->Template->contentClasses = "";
-        if ($this->hm_layout) {
-            $this->Template->contentClasses .= " " . $this->hm_layout;
-        }
-*/
-
         #-- store the wrapper start; will be closed in end element
         $GLOBALS['kitee']['container'] = 'containerHero';
     }

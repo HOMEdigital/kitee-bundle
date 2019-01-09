@@ -29,9 +29,7 @@ class GetArticle
             'layout'            => $objRow->__get('hm_layout'),
             'design'            => $objRow->__get('hm_design'),
             'stepInnerTop'      => $objRow->__get('hm_step_inner_top'),
-            'stepInnerBottom'   => $objRow->__get('hm_step_inner_bottom'),
-            'stepOuterTop'      => $objRow->__get('hm_step_outer_top'),
-            'stepOuterBottom'   => $objRow->__get('hm_step_outer_bottom')
+            'stepInnerBottom'   => $objRow->__get('hm_step_inner_bottom')
         )));
 
         #-- rows

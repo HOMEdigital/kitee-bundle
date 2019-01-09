@@ -92,38 +92,11 @@ try{
                 'tl_class' => 'w50 clr'
             ),
         ))
-        ->addField('select', 'hm_step_outer_top', array(
-            'options' => array(
-                'hm-step-outer-top-no',
-                'hm-step-outer-top-l',
-                'hm-step-outer-top-m',
-                'hm-step-outer-top-s'
-            ),
-            'default' => 'step-outer-top-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50 clr'
-            ),
-        ))
-        ->addField('select', 'hm_step_outer_bottom', array(
-            'options' => array(
-                'hm-step-outer-bottom-no',
-                'hm-step-outer-bottom-l',
-                'hm-step-outer-bottom-m',
-                'hm-step-outer-bottom-s'
-            ),
-            'default' => 'step-outer-bottom-no',
-            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
-            'eval' => array(
-                'tl_class' => 'w50'
-            ),
-        ))
     ;
 
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_hero_container_start')
         ->addPaletteGroup('image', array('singleSRC'), 'hm_hero_container_start', 2)
-        ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_hero_container_start', 3)
     ;
 
     #-- tile --------------------------------------------

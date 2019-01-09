@@ -44,7 +44,7 @@ try{
                 'hm-step-inner-top-m',
                 'hm-step-inner-top-s'
             ),
-            'default' => 'step-inner-top-no',
+            'default' => 'hm-step-inner-top-s',
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
                 'tl_class' => 'w50 clr'
@@ -57,12 +57,13 @@ try{
                 'hm-step-inner-bottom-m',
                 'hm-step-inner-bottom-s'
             ),
-            'default' => 'step-inner-bottom-no',
+            'default' => 'hm-step-inner-bottom-s',
             'reference' => &$GLOBALS['TL_LANG']['tl_article'],
             'eval' => array(
                 'tl_class' => 'w50'
             ),
         ))
+        /* Deprecated
         ->addField('select', 'hm_step_outer_top', array(
             'options' => array(
                 'hm-step-outer-top-no',
@@ -89,10 +90,11 @@ try{
                 'tl_class' => 'w50'
             ),
         ))
+        */
     ;
 
     $tl_article
-        ->addPaletteGroup('layout', array('inColumn', 'hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'default', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_layout', 'hm_step_inner_top', 'hm_step_inner_bottom'), 'default', 2)
     ;
 
     // +-- tiles ------------------------------------------------------------------------
