@@ -128,7 +128,7 @@ class GetContentElement
 
                         #-- wenn dem Bild eine Grösse zugewiesen worden ist, dann darf es nicht mit cover (also ausfüllend) angezeigt werden
                         #-- sondern mit der angegebenen Grösse
-                        if ($objRow->type == 'image' || $objRow->type == 'hyperlink') {
+                        if ($objRow->type == 'image' || $objRow->type == 'hyperlink' || $objRow->type == 'hm_tile') {
                             $size = deserialize($objRow->size);
                             if ($size[2] == '') {
                                 $classes[] = 'container-img-cover';

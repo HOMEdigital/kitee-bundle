@@ -34,9 +34,7 @@ class GetArticle
 
         #-- rows
         if($objRow->__get('hm_tile_rows') == 'rows') {
-            $classes[] = 'hm-layout-rows';
-
-            $insideClasses[] = 'hm-rows';
+            $insideClasses[] = 'hm-layout-rows';
             $insideClasses[] = $objRow->__get('hm_rows_screensize');
             $insideClasses[] = $objRow->__get('hm_rows_size');
         }
