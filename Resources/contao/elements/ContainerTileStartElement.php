@@ -45,10 +45,11 @@ class ContainerTileStartElement extends \ContentElement
     private function generateFrontend()
     {
         #-- add classes
-        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+
+        $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
             'design' => $this->hm_design
-        )));
-        
+        ))));
+
         #-- store the wrapper start; will be closed in end element
         $GLOBALS['kitee']['container'] = 'containerTile';
     }
