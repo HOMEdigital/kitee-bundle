@@ -16,7 +16,7 @@ class TileElement extends \ContentElement
     /**
      * @var string
      */
-    protected $strTemplate = 'cte_tile';
+    protected $strTemplate = 'ce_tile_img_top';
 
     /**
      * @return string
@@ -37,6 +37,10 @@ class TileElement extends \ContentElement
             $this->Template->title      = $this->hm_title;
             $this->Template->image      = DataHelper::getMultiImgObjs($this->multiSRC, array('120', '120'))[0];
         } else {
+            if ($this->hm_display != '' && $this->hm_display != 'ce_tile_img_top') {
+                $this->Template     = new \FrontendTemplate($this->hm_display);
+                $this->Template->setData($this->arrData);
+            }
             $this->generateFrontend();
         }
     }
@@ -51,8 +55,8 @@ class TileElement extends \ContentElement
         }
 
         #-- add classes
-        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+        $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
             'design' => $this->hm_design
-        )));
+        ))));
     }
 }

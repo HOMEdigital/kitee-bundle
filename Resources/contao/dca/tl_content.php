@@ -106,6 +106,19 @@ try{
                 'tl_class' => 'w50'
             ),
         ))
+        ->addField('select', 'hm_display', array(
+            'options' => array(
+                'ce_tile_img_top',
+                'ce_tile_img_bottom',
+                'ce_tile_img_left',
+                'ce_tile_img_right'
+            ),
+            'default' => 'ce_tile_img_top',
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50 clr'
+            ),
+        ))
         ->mergeFieldSettings('text', 'eval', array('mandatory'=>false, 'tl_class'=>'clr'))
         ->mergeFieldSettings('url', 'eval', array('mandatory'=>false))
     ;
@@ -115,6 +128,7 @@ try{
         ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_tile', 3)
         ->addPaletteGroup('link', array('url','linkTitle'), 'hm_tile', 4)
         ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_tile', 5)
+        ->addPaletteGroup('display', array('hm_display'), 'hm_tile', 6)
     ;
 
 }catch(\Exception $e){

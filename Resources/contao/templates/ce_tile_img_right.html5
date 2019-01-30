@@ -1,0 +1,22 @@
+<div class="<?= $this->class ?>">
+    <div class="layout-row">
+        <div class="flex">
+            <?php
+            $template = new \FrontendTemplate('part_cte_tile_content');
+            $template->setData($this->arrData);
+            echo $template->parse();
+            ?>
+        </div>
+        <div class="flex">
+            <div class="hm-tile-content">
+                <?php
+                if ($this->multiSRC) {
+                    $template = new \FrontendTemplate('part_cte_tile_image');
+                    $template->setData($this->arrData);
+                    echo $template->parse();
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
