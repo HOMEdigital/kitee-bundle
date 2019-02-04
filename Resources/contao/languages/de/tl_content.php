@@ -74,10 +74,10 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_title']        = array('Überschrift', 'Üb
 
 $GLOBALS['TL_LANG'][$moduleName]['display_legend']      = 'Darstellung';
 $GLOBALS['TL_LANG'][$moduleName]['hm_display']          = array('Darstellung', 'Darstellungsarten der Kachel');
-$GLOBALS['TL_LANG'][$moduleName]['ce_tile_img_top']     = 'Bild oben';
-$GLOBALS['TL_LANG'][$moduleName]['ce_tile_img_bottom']  = 'Bild unten';
-$GLOBALS['TL_LANG'][$moduleName]['ce_tile_img_left']    = 'Bild links';
-$GLOBALS['TL_LANG'][$moduleName]['ce_tile_img_right']   = 'Bild rechts';
+$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_top']     = 'Bild oben';
+$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_bottom']  = 'Bild unten';
+$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_left']    = 'Bild links';
+$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_right']   = 'Bild rechts';
 
 #-- anchor ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_anchor_id']        = array('Anker-Id', 'ID des Ankers, wird benötigt, damit man zu diesem Anker springen kann');

@@ -22,7 +22,7 @@ try{
         ->addPaletteGroup('invisible', array('invisible', 'guests', 'start', 'stop'), 'hm_kitee_content_base')
     ;
 
-    #-- tile container --------------------------------------------
+    #-- hm_content_container_start --------------------------------------------
     $tl_content
         ->addField('select', 'hm_design', array(
             'options' => array(),
@@ -44,19 +44,13 @@ try{
     ;
 
     $tl_content
-        ->copyPalette('hm_kitee_content_base', 'hm_tile_container_start')
-        ->addPaletteGroup('image', array('singleSRC'), 'hm_tile_container_start', 2)
-        ->addPaletteGroup('layout', array('inColumn', 'hm_design'), 'hm_tile_container_start', 3)
-        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_tile_container_start', 4)
+        ->copyPalette('hm_kitee_content_base', 'hm_content_container_start')
+        ->addPaletteGroup('image', array('singleSRC'), 'hm_content_container_start', 2)
+        ->addPaletteGroup('layout', array('inColumn', 'hm_design'), 'hm_content_container_start', 3)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_content_container_start', 4)
     ;
 
-    // -- Feld in andere content elemente integrieren
-    $tl_content
-        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'text', 4)
-        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'image', 4)
-    ;
-
-    #-- anchor --------------------------------------------
+    #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
@@ -72,13 +66,13 @@ try{
         ->addPaletteGroup('layout', array('inColumn', 'hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_anchor', 3)
     ;
 
-    #-- hr --------------------------------------------
+    #-- hm_hr --------------------------------------------
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_hr')
         ->addPaletteGroup('layout', array('hm_step_outer_top', 'hm_step_outer_bottom'), 'hm_hr', 2)
     ;
 
-    #-- hero container --------------------------------------------
+    #-- hm_hero_container_start --------------------------------------------
     $tl_content
         ->addField('select', 'hm_layout', array(
             'options' => array(
@@ -99,7 +93,7 @@ try{
         ->addPaletteGroup('image', array('singleSRC'), 'hm_hero_container_start', 2)
     ;
 
-    #-- tile --------------------------------------------
+    #-- hm_piteli_box --------------------------------------------
     $tl_content
         ->addField('text', 'hm_title', array(
             'eval' => array(
@@ -108,10 +102,10 @@ try{
         ))
         ->addField('select', 'hm_display', array(
             'options' => array(
-                'ce_tile_img_top',
-                'ce_tile_img_bottom',
-                'ce_tile_img_left',
-                'ce_tile_img_right'
+                'ce_piteli_box_img_top',
+                'ce_piteli_box_img_bottom',
+                'ce_piteli_box_img_left',
+                'ce_piteli_box_img_right'
             ),
             'default' => 'ce_tile_img_top',
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
@@ -123,12 +117,18 @@ try{
         ->mergeFieldSettings('url', 'eval', array('mandatory'=>false))
     ;
     $tl_content
-        ->copyPalette('hm_kitee_content_base', 'hm_tile')
-        ->addPaletteGroup('image', array('multiSRC','sortBy'), 'hm_tile', 2)
-        ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_tile', 3)
-        ->addPaletteGroup('link', array('url','linkTitle'), 'hm_tile', 4)
-        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_tile', 5)
-        ->addPaletteGroup('display', array('hm_display'), 'hm_tile', 6)
+        ->copyPalette('hm_kitee_content_base', 'hm_piteli_box')
+        ->addPaletteGroup('image', array('multiSRC','sortBy'), 'hm_piteli_box', 2)
+        ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_piteli_box', 3)
+        ->addPaletteGroup('link', array('url','linkTitle'), 'hm_piteli_box', 4)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_piteli_box', 5)
+        ->addPaletteGroup('display', array('hm_display'), 'hm_piteli_box', 6)
+    ;
+
+    #-- vorhandene Content Elemente erweitern
+    $tl_content
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'text', 4)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'image', 4)
     ;
 
 }catch(\Exception $e){

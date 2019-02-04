@@ -1,4 +1,4 @@
-<div class="hm-tile-image">
+<div class="hm-piteli-image">
     <div class="image_container">
         <?php if (is_array($this->multiImages) && count($this->multiImages) == 1) :
             echo $this->insert('picture_default', $this->multiImages[0]->picture);

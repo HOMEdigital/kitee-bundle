@@ -1,0 +1,15 @@
+<div class="<?= $this->class ?> piteli-img-top">
+    <?php
+    #-- image
+    if ($this->multiSRC) {
+        $template = new \FrontendTemplate('part_cte_piteli_box_image');
+        $template->setData($this->arrData);
+        echo $template->parse();
+    }
+
+    #-- content
+    $template = new \FrontendTemplate('part_cte_piteli_box_content');
+    $template->setData($this->arrData);
+    echo $template->parse();
+    ?>
+</div>

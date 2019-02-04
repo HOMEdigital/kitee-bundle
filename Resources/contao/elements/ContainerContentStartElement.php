@@ -8,15 +8,14 @@
 
 namespace Home\KiteeBundle\Resources\contao\elements;
 
-use Home\PearlsBundle\Resources\contao\Helper\DataHelper;
 use Home\KiteeBundle\Resources\HomeKiteeHelper;
 
-class TileElement extends \ContentElement
+class ContainerContentStartElement extends \ContentElement
 {
     /**
      * @var string
      */
-    protected $strTemplate = 'ce_tile_img_top';
+    protected $strTemplate = 'cte_container_start';
 
     /**
      * @return string
@@ -32,15 +31,10 @@ class TileElement extends \ContentElement
     protected function compile()
     {
         if (TL_MODE == 'BE') {
-            $this->strTemplate          = 'list_image_title';
+            $this->strTemplate          = 'be_wildcard';
             $this->Template             = new \BackendTemplate($this->strTemplate);
-            $this->Template->title      = $this->hm_title;
-            $this->Template->image      = DataHelper::getMultiImgObjs($this->multiSRC, array('120', '120'))[0];
+            $this->Template->title      = $this->headline;
         } else {
-            if ($this->hm_display != '' && $this->hm_display != 'ce_tile_img_top') {
-                $this->Template     = new \FrontendTemplate($this->hm_display);
-                $this->Template->setData($this->arrData);
-            }
             $this->generateFrontend();
         }
     }
@@ -50,13 +44,14 @@ class TileElement extends \ContentElement
      */
     private function generateFrontend()
     {
-        if ($this->multiSRC) {
-            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, array(null, null, ''));
-        }
-
         #-- add classes
+
         $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
             'design' => $this->hm_design
         ))));
+
+        #-- store the wrapper start; will be closed in end element
+        $GLOBALS['kitee']['container'] = 'containerTile';
     }
+
 }

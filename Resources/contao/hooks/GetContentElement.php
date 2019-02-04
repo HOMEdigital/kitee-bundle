@@ -40,7 +40,7 @@ class GetContentElement
                     #-- nicht von einem Wrapper (hm_tile_container_start) umschlossen sind. Denn die Spalten- bzw. Kachel-Funktion wird nur auf die Elmente der ersten Ebene
                     #-- angewendet. Content-Elemente die innerhalb eines Wrappers stehen gehören ja alle in die gleiche
                     #-- Kachel bzw. Spalte. Da dürfen die Style-Klassen nicht verwendet werden.
-                    if (($GLOBALS['kitee']['container'] == "" || $objRow->type == 'hm_tile_container_start') && $objRow->type !== 'hm_tile_container_end') {
+                    if (($GLOBALS['kitee']['container'] == "" || $objRow->type == 'hm_content_container_start') && $objRow->type !== 'hm_content_container_end') {
 
                         #-- hole die dem CE zugewiesenen Style-Klassen
                         $classes = is_array($objRow->__get('classes')) ? $objRow->__get('classes') : array();
@@ -128,7 +128,7 @@ class GetContentElement
 
                         #-- wenn dem Bild eine Grösse zugewiesen worden ist, dann darf es nicht mit cover (also ausfüllend) angezeigt werden
                         #-- sondern mit der angegebenen Grösse
-                        if ($objRow->type == 'image' || $objRow->type == 'hyperlink' || $objRow->type == 'hm_tile') {
+                        if ($objRow->type == 'image' || $objRow->type == 'hyperlink') {
                             $size = deserialize($objRow->size);
                             if ($size[2] == '') {
                                 $classes[] = 'container-img-cover';
@@ -148,11 +148,11 @@ class GetContentElement
                         $strBuffer = $objElement->generate();
 
                         #-- füge umschliessendes html hinzu
-                        if ($objRow->type != 'hm_tile_container_end') {
+                        if ($objRow->type != 'hm_content_container_end') {
                             $strBuffer = $addToHtmlStart . $strBuffer;
 
                             #-- bei den Container Elementen darf das schliessende Div natürlich auch erst beim schliessenden Container-Element hinzugefügt werden.
-                            if ($objRow->type != 'hm_tile_container_start') {
+                            if ($objRow->type != 'hm_content_container_start') {
                                 $strBuffer .= $addToHtmlEnd;
                             }
                         }
@@ -162,7 +162,7 @@ class GetContentElement
                             $strBuffer = $htmlSizerGutter . $strBuffer;
                         }
 
-                    } else if ($objRow->type == 'hm_tile_container_end') {
+                    } else if ($objRow->type == 'hm_content_container_end') {
                         #-- fügt die schliessenden Div's hinzu
                         $strBuffer .= $addToHtmlEnd;
                     }
