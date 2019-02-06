@@ -1,5 +1,5 @@
 <div class="hm-piteli-image">
-    <div class="image_container <?= (count($this->multiImages) > 1) ? 'slick-slider' : '' ?>">
+    <div class="image_container <?= (count($this->multiImages) > 1) ? 'hm-slick-slider' : '' ?>">
         <?php
         if (is_array($this->multiImages) && count($this->multiImages) == 1) {
             echo $this->insert('picture_default', $this->multiImages[0]->picture);
