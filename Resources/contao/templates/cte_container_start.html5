@@ -3,7 +3,11 @@
         <div class="hm-container-img">
             <div class="hm-container-img-inside">
                 <figure class="image_container">
-                    <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, ''))->picture) ?>
+                    <?php
+                    $size = deserialize($this->size);
+                    $size = is_array($size) && $size[2] != '' ? $size[2] : '';
+                    $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->singleSRC, array(null, null, $size))->picture);
+                    ?>
                 </figure>
             </div>
         </div>

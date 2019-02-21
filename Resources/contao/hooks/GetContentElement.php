@@ -35,6 +35,7 @@ class GetContentElement
                     $html = "";
                     $classes = array(); // Klassen des ContentElments
                     $tile_classes = array(); // die Klassen werden dem umschliessenden Div zugewiesen
+                    $this->multiStart = null; // wenn ein multi content elment vorliegt werden hier die einzlenen start html strings gespeichert
 
                     #-- die folgenden Style-Klassen dürfen nur bei ContentElmenten hinzugefügt werden, die auf der ersten Eben stehen, also nicht
                     #-- nicht von einem Wrapper (hm_tile_container_start) umschlossen sind. Denn die Spalten- bzw. Kachel-Funktion wird nur auf die Elmente der ersten Ebene
@@ -83,47 +84,21 @@ class GetContentElement
                             }
                             $htmlSizerGutter = '<div class="hm-tiles-sizer"></div><div class="hm-tiles-gutter-sizer"></div>';
                         } else if ($article->hm_tile_rows == 'rows') {
-                            #-- wenn Spalten nicht gleich gross sind
-                            if ($article->hm_rows_size != 'hm-rows-flex') {
-                                #-- ermittle ab welcher Bildschirmgrösse die Spalten eingesetzt werden sollen
-                                switch ($article->hm_rows_screensize) {
-                                    case 'layout-gt-xs-row':
-                                        $rowStart = 'gt-xs-';
-                                        break;
-                                    case 'layout-gt-sm-row':
-                                        $rowStart = 'gt-sm-';
-                                        break;
-                                    case 'layout-gt-md-row':
-                                        $rowStart = 'gt-md-';
-                                        break;
-                                    default:
-                                        $rowStart = '';
-                                }
-
-                                #-- weise die entsprechenden Style-Klassen dem CE zu
-                                if ($objRow->__get('hm_tile_item_big')) {
-                                    $tile_classes[] = 'flex-' . $rowStart . '100';
-                                } else {
-                                    $rowSize = explode('-', $article->hm_rows_size);
-                                    if ($GLOBALS['kitee']['ce_number'] % 2 == 0) {
-                                        $tile_classes[] = 'flex-' . $rowStart . $rowSize[3];
-                                    } else {
-                                        $tile_classes[] = 'flex-' . $rowStart . $rowSize[2];
-                                    }
-                                }
-                            } else {
-                                #-- weise die entsprechenden Style-Klassen dem CE zu
-                                if ($objRow->__get('hm_tile_item_big')) {
-                                    $tile_classes[] = 'flex-' . $rowStart . '100';
-                                } else {
-                                    $tile_classes[] = 'flex';
-                                }
-                            }
+                            $tile_classes[] = self::getRowClasses($article->hm_rows_screensize, $article->hm_rows_size, $objRow->__get('hm_tile_item_big'), $GLOBALS['tl_dca'][$objRow->type]['kitee']['multiCe']);
                         }
 
                         #-- set ce additional data
                         $tileOrRowClass = ($article->hm_tile_rows == 'tiles' || $article->hm_tile_rows == 'tiles_isotope') ? 'hm-tile' : 'hm-row';
                         $tile_classes[] = $tileOrRowClass;
+
+                        if (is_array($this->multiStart)) {
+                            $multiHtmlStart = array();
+                            foreach($this->multiStart as $multiStartClass) {
+                                $multiHtmlStart[] = '<div class="' . implode(' ', $tile_classes) . ' '. $multiStartClass . '"><div class="' . $tileOrRowClass . '-inside">';
+                            }
+                            $tile_classes[] = $this->multiStart[0];
+                        }
+
                         $addToHtmlStart = '<div class="' . implode(' ', $tile_classes) . '"><div class="' . $tileOrRowClass . '-inside">';
 
                         #-- wenn dem Bild eine Grösse zugewiesen worden ist, dann darf es nicht mit cover (also ausfüllend) angezeigt werden
@@ -140,6 +115,9 @@ class GetContentElement
                         $objRow->__set('classes', $classes);
                         $objRow->__set('htmlStart', $addToHtmlStart);
                         $objRow->__set('htmlEnd', $addToHtmlEnd);
+                        if (is_array($multiHtmlStart)) {
+                            $objRow->__set('multiHtmlStart', $multiHtmlStart);
+                        }
 
                         #-- generate a new strBuffer from objRow
                         #-- Achtung: ein neues generieren des objElement schlägt beim ContentImage fehl. Daher muss ein komplett neues objElement erzeugt werden
@@ -175,7 +153,62 @@ class GetContentElement
     }
 
     /**
-     * get classes for 2 columns
+     * return the classes for the row
+     */
+    private function getRowClasses($screensize, $rowsize, $itemBig = false, $multiCe = false) {
+        #-- ermittle ab welcher Bildschirmgrösse die Spalten eingesetzt werden sollen
+        switch ($screensize) {
+            case 'layout-gt-xs-row':
+                $rowStart = 'gt-xs-';
+                break;
+            case 'layout-gt-sm-row':
+                $rowStart = 'gt-sm-';
+                break;
+            case 'layout-gt-md-row':
+                $rowStart = 'gt-md-';
+                break;
+            default:
+                $rowStart = '';
+        }
+
+        #-- wenn Spalte eine grosse Spalte ist
+        if ($itemBig) {
+            return 'flex-' . $rowStart . '100';
+        }
+
+        #-- wenn alle Spalten gleich gross
+        if ($rowsize == 'hm-rows-flex') {
+            return 'flex';
+        }
+
+        $rowSize = explode('-', $rowsize);
+
+        #-- wenn es sich um ein multi content element handelt -> wenn das CE mehrere content elemente ausgibt
+        if ($multiCe === true) {
+            $this->multiStart = array();
+            foreach($rowSize as $key=>$val) {
+                if ($key > 1) {
+                    $this->multiStart[] = 'flex-' . $rowStart . $rowSize[$key];
+                }
+            }
+            return '';
+        }
+
+        #-- else
+        if (count($rowSize) == 4) { /* +-- zweispaltig - hm-rows-30-70 */
+            if ($GLOBALS['kitee']['ce_number'] % 2 == 0) {
+                return 'flex-' . $rowStart . $rowSize[3];
+            } else {
+                return 'flex-' . $rowStart . $rowSize[2];
+            }
+        }
+        if (count($rowSize) > 4) { /* +-- drei- und mehrspaltig - hm-rows-30-70 */
+            return 'flex-' . $rowStart . $rowSize[2];
+        }
+    }
+
+    /**
+     * return classes for 2 columns tiles
      */
     private function get2ColTileClasses($itemBig)
     {
@@ -189,7 +222,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 3 columns
+     * return classes for 3 columns tiles
      */
     private function get3ColTileClasses($itemBig)
     {
@@ -206,7 +239,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 3 columns full width
+     * return classes for 3 columns full width tiles
      */
     private function get3ColFullTileClasses($itemBig)
     {
@@ -223,7 +256,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 4 columns
+     * return classes for 4 columns tiles
      */
     private function get4ColTileClasses($itemBig)
     {
@@ -243,7 +276,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 4 columns full width
+     * return classes for 4 columns full width tiles
      */
     private function get4ColFullTileClasses($itemBig)
     {
@@ -263,7 +296,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 5 columns
+     * return classes for 5 columns tiles
      */
     private function get5ColTileClasses($itemBig)
     {
@@ -283,7 +316,7 @@ class GetContentElement
     }
 
     /**
-     * get classes for 6 columns
+     * return classes for 6 columns tiles
      */
     private function get6ColTileClasses($itemBig)
     {

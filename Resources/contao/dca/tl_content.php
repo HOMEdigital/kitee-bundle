@@ -90,7 +90,7 @@ try{
 
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_hero_container_start')
-        ->addPaletteGroup('image', array('singleSRC'), 'hm_hero_container_start', 2)
+        ->addPaletteGroup('image', array('singleSRC', 'size'), 'hm_hero_container_start', 2)
     ;
 
     #-- hm_piteli_box --------------------------------------------
