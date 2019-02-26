@@ -21,43 +21,52 @@ class GetArticle
      */
     public function setLayoutClasses(ArticleModel $objRow)
     {
-        $insideClasses = array();
-        $insideInsideClasses = array();
-        $rowClasses = is_array($objRow->__get('classes'))  ? $objRow->__get('classes') : array();
+        #-- hook soll nur im Frontend greifen
+        if (strpos($_SERVER['REQUEST_URI'], '/contao?' ) === false) {
+            #-- greift nur, wenn im artikel rows&tiles ausgewählt wurde
+            if ($objRow->hm_tile_rows != '') {
+                $GLOBALS['kitee']['article']['id'] = $objRow->id;
+            }
 
-        #-- add classes
-        $classes = array_merge($rowClasses, HomeKiteeHelper::getLayoutClasses(array(
-            'layout'            => $objRow->__get('hm_layout'),
-            'design'            => $objRow->__get('hm_design')
-        )));
-        #-- add classes
-        $insideClasses = array_merge($insideClasses, HomeKiteeHelper::getLayoutClasses(array(
-            'stepInnerTop'      => $objRow->__get('hm_step_inner_top'),
-            'stepInnerBottom'   => $objRow->__get('hm_step_inner_bottom')
-        )));
+            #-- add layout classes
+            $insideClasses = array();
+            $insideInsideClasses = array();
+            $rowClasses = is_array($objRow->__get('classes'))  ? $objRow->__get('classes') : array();
 
-        #-- rows
-        if($objRow->__get('hm_tile_rows') == 'rows') {
-            $insideInsideClasses[] = 'hm-layout-rows';
-            $insideInsideClasses[] = $objRow->__get('hm_rows_screensize');
-            $insideInsideClasses[] = $objRow->__get('hm_rows_size');
+            #-- add classes
+            $classes = array_merge($rowClasses, HomeKiteeHelper::getLayoutClasses(array(
+                'layout'            => $objRow->__get('hm_layout'),
+                'design'            => $objRow->__get('hm_design')
+            )));
+            #-- add classes
+            $insideClasses = array_merge($insideClasses, HomeKiteeHelper::getLayoutClasses(array(
+                'stepInnerTop'      => $objRow->__get('hm_step_inner_top'),
+                'stepInnerBottom'   => $objRow->__get('hm_step_inner_bottom')
+            )));
+
+            #-- rows
+            if($objRow->__get('hm_tile_rows') == 'rows') {
+                $insideInsideClasses[] = 'hm-layout-rows';
+                $insideInsideClasses[] = $objRow->__get('hm_rows_screensize');
+                $insideInsideClasses[] = $objRow->__get('hm_rows_size');
+            }
+
+            #-- tiles
+            if($objRow->__get('hm_tile_rows') == 'tiles') {
+                $insideInsideClasses[] = $objRow->__get('hm_tile_cols');
+                $insideInsideClasses[] = 'hm-layout-tiles';
+                $insideInsideClasses[] = 'layout-row';
+            }
+
+            #-- tiles isotope
+            if($objRow->__get('hm_tile_rows') == 'tiles_isotope') {
+                $insideInsideClasses[] = $objRow->__get('hm_tile_cols');
+                $insideInsideClasses[] =  'hm-layout-isotiles';
+            }
+
+            $objRow->__set('classes', $classes);
+            $objRow->__set('insideClasses', implode(' ', $insideClasses));
+            $objRow->__set('insideInsideClasses', implode(' ', $insideInsideClasses));
         }
-
-        #-- tiles
-        if($objRow->__get('hm_tile_rows') == 'tiles') {
-            $insideInsideClasses[] = $objRow->__get('hm_tile_cols');
-            $insideInsideClasses[] = 'hm-layout-tiles';
-            $insideInsideClasses[] = 'layout-row';
-        }
-
-        #-- tiles isotope
-        if($objRow->__get('hm_tile_rows') == 'tiles_isotope') {
-            $insideInsideClasses[] = $objRow->__get('hm_tile_cols');
-            $insideInsideClasses[] =  'hm-layout-isotiles';
-        }
-
-        $objRow->__set('classes', $classes);
-        $objRow->__set('insideClasses', implode(' ', $insideClasses));
-        $objRow->__set('insideInsideClasses', implode(' ', $insideInsideClasses));
     }
 }

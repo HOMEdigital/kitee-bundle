@@ -28,7 +28,7 @@ class GetContentElement
             if ($objRow->pid > 0 && $objRow->ptable == 'tl_article') {
                 $article = ArticleModel::findById($objRow->pid);
 
-                #-- greift nur, wenn im artikel Spalten oder Kacheln ausgewählt wurde
+                #-- greift nur, wenn im artikel rows&tiles ausgewählt wurde
                 if ($article->hm_tile_rows != '') {
                     $addToHtmlStart = '';
                     $addToHtmlEnd = '</div></div>';
@@ -75,9 +75,14 @@ class GetContentElement
                             }
                         }
 
+                        #-- set the changes
                         $objRow->__set('classes', $classes);
                         $objRow->__set('htmlStart', $addToHtmlStart);
                         $objRow->__set('htmlEnd', $addToHtmlEnd);
+                        #-- die html-Vorlagen werden auch in Globals gespeichert, damit man in templates von
+                        #-- frontend modulen ebenfalls darauf Zugriff hat (z.B. news)
+                        $GLOBALS['kitee']['article'][$article->id]['htmlStart'] = $addToHtmlStart;
+                        $GLOBALS['kitee']['article'][$article->id]['htmlEnd'] = $addToHtmlEnd;
 
 
                         #-- generate a new strBuffer from objRow
