@@ -52,9 +52,9 @@ class GetContentElement
                         $GLOBALS['kitee']['ce_number'] = (in_array('first', $classes) === true) ? 1 : $GLOBALS['kitee']['ce_number'] + 1;
 
                         #-- Zuweisen der entsprechenden row&tile Klassen, je nach dem, was im Artikel ausgewählt wurde
-                        $tile_classes = array_merge($tile_classes, HomeKiteeHelper::getRowTilesClasses($article, $objRow->__get('hm_tile_item_big')));
-
-                        if ($article->hm_tile_rows == 'tiles_isotope' && $objRow->__get('hm_tile_item_big')) {
+                        if($article->hm_tile_rows == 'tiles' || $article->hm_tile_rows == 'rows') {
+                            $tile_classes = array_merge($tile_classes, HomeKiteeHelper::getRowTilesClasses($article, $objRow->__get('hm_tile_item_big')));
+                        } else if ($article->hm_tile_rows == 'tiles_isotope' && $objRow->__get('hm_tile_item_big')) {
                             $classes[] = $objRow->__get('hm_tile_item_big');
                         }
 
