@@ -1,4 +1,4 @@
-<div class="hm-piteli-image">
+<div class="hm-box-image">
     <div class="image_container <?= (count($this->multiImages) > 1) ? 'hm-slick-slider' : '' ?>">
         <?php
         if (is_array($this->multiImages) && count($this->multiImages) == 1) {

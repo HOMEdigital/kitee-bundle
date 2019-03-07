@@ -16,6 +16,9 @@ $GLOBALS['TL_LANG'][$moduleName]['layout_legend']       = 'Layoutbereich';
 $GLOBALS['TL_LANG'][$moduleName]['anchor'] = array('Anker-Name', 'Name des Ankers, auf den gesprungen werden soll');
 $GLOBALS['TL_LANG'][$moduleName]['search_parameter'] = array('Such-Parameter', 'Parameter für die Suche');
 
+$GLOBALS['TL_LANG'][$moduleName]['bkg-']                = 'Rand';
+$GLOBALS['TL_LANG'][$moduleName]['bkg-light-grey']      = 'Hellgrau';
+$GLOBALS['TL_LANG'][$moduleName]['bkg-dark-grey']       = 'Dunkelgrau';
 
 #-- container element --------------------------------------------------------
 
@@ -69,15 +72,19 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-2col-item']      = '2-spaltig';
 $GLOBALS['TL_LANG'][$moduleName]['hm-tiles-3col-item']      = '3-spaltig';
 $GLOBALS['TL_LANG'][$moduleName]['flex-100']                = 'Alle Spalten';
 
-#-- tile ----------------------------------------
+#-- piteli-Box ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_title']        = array('Überschrift', 'Überschrift der Kachel');
 
 $GLOBALS['TL_LANG'][$moduleName]['display_legend']      = 'Darstellung';
 $GLOBALS['TL_LANG'][$moduleName]['hm_display']          = array('Darstellung', 'Darstellungsarten der Kachel');
-$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_top']     = 'Bild oben';
-$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_bottom']  = 'Bild unten';
-$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_left']    = 'Bild links';
-$GLOBALS['TL_LANG'][$moduleName]['ce_piteli_box_img_right']   = 'Bild rechts';
+$GLOBALS['TL_LANG'][$moduleName]['img_top']             = 'Bild/Icon oben';
+$GLOBALS['TL_LANG'][$moduleName]['img_bottom']          = 'Bild/Icon unten';
+$GLOBALS['TL_LANG'][$moduleName]['img_left']            = 'Bild/Icon links';
+$GLOBALS['TL_LANG'][$moduleName]['img_right']           = 'Bild/Icon rechts';
+
+#-- icteli-Box ----------------------------------------
+$GLOBALS['TL_LANG'][$moduleName]['icon_legend'] = 'Icon';
+$GLOBALS['TL_LANG'][$moduleName]['hm_icon']     = array('Icon', 'Geben Sie den Wert an um auf das Icon zuzugreifen. Bei FontAwesome bitte davor noch &#x setzen! ');
 
 #-- anchor ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_anchor_id']        = array('Anker-Id', 'ID des Ankers, wird benötigt, damit man zu diesem Anker springen kann');

@@ -102,10 +102,10 @@ try{
         ))
         ->addField('select', 'hm_display', array(
             'options' => array(
-                'ce_piteli_box_img_top',
-                'ce_piteli_box_img_bottom',
-                'ce_piteli_box_img_left',
-                'ce_piteli_box_img_right'
+                'img_top',
+                'img_bottom',
+                'img_left',
+                'img_right'
             ),
             'default' => 'ce_tile_img_top',
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
@@ -119,10 +119,30 @@ try{
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_piteli_box')
         ->addPaletteGroup('image', array('multiSRC','sortBy'), 'hm_piteli_box', 2)
-        ->addPaletteGroup('text', array('hm_title', 'text'), 'hm_piteli_box', 3)
+        ->addPaletteGroup('text', array('text'), 'hm_piteli_box', 3)
         ->addPaletteGroup('link', array('url','linkTitle'), 'hm_piteli_box', 4)
         ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_piteli_box', 5)
         ->addPaletteGroup('display', array('hm_display'), 'hm_piteli_box', 6)
+    ;
+
+    #-- hm_icteli_box --------------------------------------------
+    $tl_content
+        ->addField('text', 'hm_icon', array(
+            'eval' => array(
+                'decodeEntities' => true,
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->mergeFieldSettings('text', 'eval', array('mandatory'=>false, 'tl_class'=>'clr'))
+        ->mergeFieldSettings('url', 'eval', array('mandatory'=>false))
+    ;
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_icteli_box')
+        ->addPaletteGroup('icon', array('hm_icon'), 'hm_icteli_box', 2)
+        ->addPaletteGroup('text', array('text'), 'hm_icteli_box', 3)
+        ->addPaletteGroup('link', array('url','linkTitle'), 'hm_icteli_box', 4)
+        ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_icteli_box', 5)
+        ->addPaletteGroup('display', array('hm_display'), 'hm_icteli_box', 6)
     ;
 
     #-- vorhandene Content Elemente erweitern

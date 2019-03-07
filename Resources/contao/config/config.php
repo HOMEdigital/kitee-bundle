@@ -18,6 +18,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
         'hm_content_container_start'    => 'Home\KiteeBundle\Resources\contao\elements\ContainerContentStartElement',
         'hm_content_container_end'      => 'Home\KiteeBundle\Resources\contao\elements\ContainerEndElement',
         'hm_piteli_box'                 => 'Home\KiteeBundle\Resources\contao\elements\PiTeLiBoxElement',
+        'hm_icteli_box'                 => 'Home\KiteeBundle\Resources\contao\elements\IcTeLiBoxElement',
         'hm_hero_container_start'       => 'Home\KiteeBundle\Resources\contao\elements\ContainerHeroStartElement',
         'hm_hero_container_end'         => 'Home\KiteeBundle\Resources\contao\elements\ContainerEndElement',
         'hm_hr'                         => 'Home\KiteeBundle\Resources\contao\elements\HrElement',

@@ -1,0 +1,3 @@
+<div class="hm-box-icon">
+    <span data-icon="<?= $this->hm_icon ?>"></span>
+</div>

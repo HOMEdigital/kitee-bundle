@@ -11,12 +11,12 @@ namespace Home\KiteeBundle\Resources\contao\elements;
 use Home\PearlsBundle\Resources\contao\Helper\DataHelper;
 use Home\KiteeBundle\Resources\HomeKiteeHelper;
 
-class PiTeLiBoxElement extends \ContentElement
+class IcTeLiBoxElement extends \ContentElement
 {
     /**
      * @var string
      */
-    protected $strTemplate = 'ce_piteli_box_img';
+    protected $strTemplate = 'ce_icteli_box_icon';
 
     /**
      * @return string
@@ -32,9 +32,9 @@ class PiTeLiBoxElement extends \ContentElement
     protected function compile()
     {
         if (TL_MODE == 'BE') {
+            $this->strTemplate          = 'be_wildcard';
             $this->Template             = new \BackendTemplate('list_image_title');
             $this->Template->title      = $this->text;
-            $this->Template->image      = DataHelper::getMultiImgObjs($this->multiSRC, array('120', '120'))[0];
         } else {
             $this->generateFrontend();
         }
