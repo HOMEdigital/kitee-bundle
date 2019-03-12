@@ -1,9 +1,12 @@
+<?php
+$target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
+?>
 <div class="hm-box-content">
     <?php if ($this->text): ?><div class="hm-box-text"><?= $this->text ?></div><?php endif; ?>
     <?php if ($this->url): ?>
         <div class="hm-box-buttons">
             <div>
-                <a href="<?= $this->url ?>" class="hm-box-btn"><?= $this->linkTitle ?></a>
+                <a href="<?= $this->url ?>" <?= $target ?> class="hm-box-btn"><?= $this->linkTitle ?></a>
             </div>
         </div>
     <?php endif; ?>
