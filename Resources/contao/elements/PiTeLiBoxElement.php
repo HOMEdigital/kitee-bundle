@@ -46,7 +46,7 @@ class PiTeLiBoxElement extends \ContentElement
     private function generateFrontend()
     {
         if ($this->multiSRC) {
-            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, array(null, null, ''));
+            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, deserialize($this->size));
         }
 
         #-- add classes
