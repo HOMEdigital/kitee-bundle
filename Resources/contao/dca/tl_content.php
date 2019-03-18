@@ -118,7 +118,7 @@ try{
     ;
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_piteli_box')
-        ->addPaletteGroup('image', array('multiSRC','sortBy'), 'hm_piteli_box', 2)
+        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_piteli_box', 2)
         ->addPaletteGroup('text', array('text'), 'hm_piteli_box', 3)
         ->addPaletteGroup('link', array('url','linkTitle'), 'hm_piteli_box', 4)
         ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_piteli_box', 5)
