@@ -2,7 +2,20 @@
 $target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
 ?>
 <div class="hm-box-content">
-    <?php if ($this->text): ?><div class="hm-box-text"><?= $this->text ?></div><?php endif; ?>
+    <?php if ($this->text): ?>
+        <div class="hm-box-text">
+            <?php
+            if ($this->url != "" && $this->linkTitle == "") : ?>
+            <a href="<?= $this->url ?>" <?= $target ?>">
+            <?php endif; ?>
+
+            <?= $this->text ?>
+
+            <?php if ($this->url != "" && $this->linkTitle == "") : ?>
+            </a>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
     <?php if ($this->url): ?>
         <div class="hm-box-buttons">
             <div>

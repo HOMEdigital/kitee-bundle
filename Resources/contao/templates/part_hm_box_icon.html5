@@ -1,3 +1,13 @@
 <div class="hm-box-icon">
-    <span data-icon="<?= $this->hm_icon ?>"></span>
+    <?php
+    $target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
+    if ($this->url != "" && $this->linkTitle == "") : ?>
+    <a href="<?= $this->url ?>" <?= $target ?>">
+    <?php endif; ?>
+
+        <span data-icon="<?= $this->hm_icon ?>"></span>
+
+    <?php if ($this->url != "" && $this->linkTitle == "") : ?>
+    </a>
+    <?php endif; ?>
 </div>

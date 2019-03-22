@@ -1,12 +1,22 @@
 <div class="hm-box-image">
     <div class="image_container <?= (count($this->multiImages) > 1) ? 'hm-slick-slider' : '' ?>">
         <?php
-        if (is_array($this->multiImages) && count($this->multiImages) == 1) {
-            echo $this->insert('picture_default', $this->multiImages[0]->picture);
-        } elseif(is_array($this->multiImages) && count($this->multiImages) > 1) {
-            foreach ($this->multiImages as $picture) {
-                echo $this->insert('picture_default', $picture->picture);
-            }
-        } ?>
+        $target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
+        if ($this->url != "" && $this->linkTitle == "") : ?>
+        <a href="<?= $this->url ?>" <?= $target ?>">
+            <?php endif; ?>
+
+            <?php
+            if (is_array($this->multiImages) && count($this->multiImages) == 1) {
+                echo $this->insert('picture_default', $this->multiImages[0]->picture);
+            } elseif(is_array($this->multiImages) && count($this->multiImages) > 1) {
+                foreach ($this->multiImages as $picture) {
+                    echo $this->insert('picture_default', $picture->picture);
+                }
+            } ?>
+
+            <?php if ($this->url != "" && $this->linkTitle == "") : ?>
+        </a>
+        <?php endif; ?>
     </div>
 </div>
