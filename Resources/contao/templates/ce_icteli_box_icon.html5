@@ -9,7 +9,7 @@
                 echo $template->parse();
                 ?>
             </div>
-            <div class="flex-30">
+            <div class="flex-30 flex-sm-20 flex-xs-15">
                 <?php
                 #-- icon
                 if ($this->hm_icon) {
@@ -40,7 +40,7 @@
 <?php elseif($this->hm_display == 'img_left') : ?>
     <div class="<?= $this->class ?> icteli-ico-left">
         <div class="layout-row">
-            <div class="flex-30">
+            <div class="flex-30 flex-sm-20 flex-xs-15">
                 <?php
                 #-- icon
                 if ($this->hm_icon) {
