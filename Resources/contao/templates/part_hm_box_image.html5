@@ -1,5 +1,5 @@
 <div class="hm-box-image">
-    <div class="image_container <?= (count($this->multiImages) > 1) ? 'hm-slick-slider' : '' ?>">
+    <div class="image_container <?= (count($this->multiImages) > 1) ? 'slick-slider' : '' ?>">
         <?php
         $target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
         if ($this->url != "" && $this->linkTitle == "") : ?>
