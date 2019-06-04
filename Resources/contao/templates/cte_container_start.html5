@@ -12,5 +12,5 @@
             </div>
         </div>
     <?php endif; ?>
-    <div class="hm-container-content <?= $this->contentClasses ?>">
+    <div class="hm-container-content<?php if($this->singleSRC) echo ' on-image' ?> <?= $this->contentClasses ?>">
         <div class="hm-container-content-inside">
