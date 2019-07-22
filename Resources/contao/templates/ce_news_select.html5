@@ -1,0 +1,3 @@
+<?=$this->article['headline'];?>
+<?php
+var_dump($this->article);

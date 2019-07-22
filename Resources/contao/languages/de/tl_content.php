@@ -89,3 +89,7 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_icon']     = array('Icon', 'Geben Sie den W
 #-- anchor ----------------------------------------
 $GLOBALS['TL_LANG'][$moduleName]['hm_anchor_id']        = array('Anker-Id', 'ID des Ankers, wird benötigt, damit man zu diesem Anker springen kann');
 $GLOBALS['TL_LANG'][$moduleName]['anchor_legend']       = 'Anker Einstellungen';
+
+#-- news_select
+$GLOBALS['TL_LANG'][$moduleName]['hm_news_select_legend'] = 'News Auswahl';
+$GLOBALS['TL_LANG'][$moduleName]['hm_news_select'] = array('News', 'Auswahl welches News Element angezeigt werden soll.');

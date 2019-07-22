@@ -23,6 +23,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
         'hm_hero_container_end'         => 'Home\KiteeBundle\Resources\contao\elements\ContainerEndElement',
         'hm_hr'                         => 'Home\KiteeBundle\Resources\contao\elements\HrElement',
         'hm_anchor'                     => 'Home\KiteeBundle\Resources\contao\elements\AnchorElement',
+        'hm_news_select'                => 'Home\KiteeBundle\Resources\contao\elements\NewsSelectElement',
     )
 ));
 

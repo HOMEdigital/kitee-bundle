@@ -89,6 +89,23 @@ try{
     ;
 
     $tl_content
+        ->addField('select', 'hm_news_select', array(
+            'options_callback'  => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getNewsSelectOptions'),
+            'eval' => array(
+                'tl_class' => 'w50 clr',
+                'chosen' => true,
+                'includeBlankOption' => true,
+                'mandatory' => true,
+            ),
+        ))
+        ->addField('select_template', 'hm_template', array(
+            'tempPrefix' => 'ce_',
+        ))
+        ->copyPalette('hm_kitee_content_base', 'hm_news_select')
+        ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design'), 'hm_news_select', 2);
+    ;
+
+    $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_hero_container_start')
         ->addPaletteGroup('image', array('singleSRC', 'size'), 'hm_hero_container_start', 2)
     ;
@@ -161,6 +178,22 @@ try{
  */
 class tl_content extends \Backend
 {
+    public function getNewsSelectOptions(\Contao\DataContainer $dc){
+        $return = array();
+
+        #-- get all news elements
+        $news = \Contao\NewsModel::findAll()->fetchAll();
+
+        foreach ($news as $row){
+            $return[$row['id']] = $row['headline'];
+        }
+
+        #-- sort news elements by
+        asort($return);
+
+        return $return;
+    }
+
     public function getItemBigOptions($element)
     {
         $tileOptions = array(
