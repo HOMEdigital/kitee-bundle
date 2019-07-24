@@ -88,6 +88,7 @@ try{
         ))
     ;
 
+    #-- news select ------------------------------------------------
     $tl_content
         ->addField('select', 'hm_news_select', array(
             'options_callback'  => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getNewsSelectOptions'),
@@ -99,7 +100,7 @@ try{
             ),
         ))
         ->addField('select_template', 'hm_template', array(
-            'tempPrefix' => 'ce_',
+            'tempPrefix' => 'news_',
         ))
         ->copyPalette('hm_kitee_content_base', 'hm_news_select')
         ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design'), 'hm_news_select', 2);

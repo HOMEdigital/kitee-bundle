@@ -93,3 +93,4 @@ $GLOBALS['TL_LANG'][$moduleName]['anchor_legend']       = 'Anker Einstellungen';
 #-- news_select
 $GLOBALS['TL_LANG'][$moduleName]['hm_news_select_legend'] = 'News Auswahl';
 $GLOBALS['TL_LANG'][$moduleName]['hm_news_select'] = array('News', 'Auswahl welches News Element angezeigt werden soll.');
+$GLOBALS['TL_LANG'][$moduleName]['hm_template'] = array('Template', 'Auswahl des Templates zur Anzeige des Elements.');

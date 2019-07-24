@@ -13,7 +13,7 @@ class NewsSelectElement extends ContentElement
     /**
      * @var string
      */
-    protected $strTemplate = 'ce_news_select';
+    protected $strTemplate = 'news_slick';
 
     /**
      * @return string
@@ -63,6 +63,11 @@ class NewsSelectElement extends ContentElement
         if($objArticle instanceof  \Contao\NewsModel){
             $arrArticle = DataHelper::convertValue($objArticle->row());
             $this->Template->article = $arrArticle;
+            $this->Template->headline = $arrArticle['headline'];
+            $this->Template->date = $arrArticle['date'];
+            $this->Template->newstext = $arrArticle['newstext'];
+            $this->Template->link = $arrArticle['link'];
+            $this->Template->gallery = $arrArticle['gallery'];
         }
     }
 }

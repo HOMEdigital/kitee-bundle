@@ -1,0 +1,25 @@
+<?php
+#-- picture
+$picture = deserialize($this->gallery);
+$picture = $picture[0];
+
+#-- template
+$template = new \FrontendTemplate('part_news_list');
+$template->picture      = $picture;
+$template->date         = $this->date;
+$template->headline     = $this->headline;
+$template->headlineType = 'h3';
+$template->text         = $this->newstext;
+$template->link         = $this->link;
+$template->picturesize  = '3';
+
+if ($this->htmlEnd != "" && $this->htmlStart != "") {
+    $template->tile_post = $this->htmlEnd . $this->htmlStart;
+}
+
+echo $template->parse();
+
+
+?>
+
+
