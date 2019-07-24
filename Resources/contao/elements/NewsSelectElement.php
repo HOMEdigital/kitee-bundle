@@ -66,7 +66,8 @@ class NewsSelectElement extends ContentElement
             $this->Template->headline = $arrArticle['headline'];
             $this->Template->date = $arrArticle['date'];
             $this->Template->newstext = $arrArticle['newstext'];
-            $this->Template->link = $arrArticle['link'];
+            $this->Template->link = str_replace('.html', '/' .$arrArticle['alias'] . '.html',
+                \Contao\Controller::replaceInsertTags($this->url));
             $this->Template->gallery = $arrArticle['gallery'];
         }
     }

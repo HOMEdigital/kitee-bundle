@@ -103,7 +103,7 @@ try{
             'tempPrefix' => 'news_',
         ))
         ->copyPalette('hm_kitee_content_base', 'hm_news_select')
-        ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design'), 'hm_news_select', 2);
+        ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design', 'url'), 'hm_news_select', 2);
     ;
 
     $tl_content
