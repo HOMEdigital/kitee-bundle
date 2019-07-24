@@ -1,0 +1,65 @@
+<?php
+#-- teaser
+$maxTeaserLength = 115;
+if (strlen($this->text) > $maxTeaserLength) {
+    #-- kürze teaser string
+    $teaser = \StringUtil::substrHtml($this->text, $maxTeaserLength);
+    #-- füge '...' hinzu
+    // +-- wenn ein </p> am Schluss steht, muss das '...' davor eingefügt werden.
+    if (strlen($teaser) == strrpos($teaser, '</p>') + 4) {
+        $teaser = substr($teaser, 0, strlen($teaser) - 4) . '&nbsp;...</p>';
+    } else {
+        $teaser .= '&nbsp;...';
+    }
+} else {
+    if ($this->text != "") {
+        $this->link = null;
+    }
+    $teaser = $this->text;
+}
+
+#-- date
+$date = new DateTime($this->date);
+$formatter = new IntlDateFormatter(
+    "de-DE",
+    IntlDateFormatter::LONG,
+    IntlDateFormatter::NONE,
+    "Europe/Berlin",
+    IntlDateFormatter::GREGORIAN,
+    "dd. MMMM YYYY"
+);
+?>
+<div class="news-fed" itemscope itemtype="http://schema.org/Article">
+    <div class="news-fed-image container-img-cover">
+        <?php if($this->link) : ?>
+        <a href="<?= $this->link ?>" <?= $this->linkTarget ?>>
+            <?php endif; ?>
+            <?php if($this->picture) : ?>
+                <?php $this->insert('picture_default', Home\PearlsBundle\Resources\contao\Helper\DataHelper::getImgObj($this->picture, array(null, null, $this->picturesize))->picture); ?>
+            <?php elseif($this->pictureUrl) : ?>
+                <img src="<?= $this->pictureUrl ?>" alt="<?= $this->headline ?>">
+            <?php endif; ?>
+            <?php if($this->link) : ?>
+        </a>
+    <?php endif; ?>
+    </div>
+    <div class="news-fed-content">
+        <div class="news-fed-date"><?= $formatter->format($date) ?></div>
+        <div class="news-fed-title">
+            <?php if($this->link) : ?>
+            <a href="<?= $this->link ?>" <?= $this->linkTarget ?>>
+                <?php endif; ?>
+                <<?= $this->headlineType ?>><?= $this->headline ?></<?= $this->headlineType ?>>
+            <?php if($this->link) : ?>
+                </a>
+            <?php endif; ?>
+        </div>
+        <div class="news-fed-teaser hide-sm hide-xs"><?= $teaser ?></div>
+    </div>
+</div>
+
+<?php
+if ($this->tile_post) {
+    echo $this->tile_post;
+}
+?>

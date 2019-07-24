@@ -62,13 +62,42 @@ class NewsSelectElement extends ContentElement
         $objArticle = \Contao\NewsModel::findById($this->hm_news_select);
         if($objArticle instanceof  \Contao\NewsModel){
             $arrArticle = DataHelper::convertValue($objArticle->row());
+
+            $link = str_replace('.html', '/' .$arrArticle['alias'] . '.html', \Contao\Controller::replaceInsertTags($this->url));
+
             $this->Template->article = $arrArticle;
             $this->Template->headline = $arrArticle['headline'];
-            $this->Template->date = $arrArticle['date'];
+            $this->Template->linkHeadline = $arrArticle['headline'];
+            $this->Template->date = date('d.m.Y h:i',$arrArticle['date']);
+            $this->Template->datetime = date('Y-m-d\TH:i:sP', $arrArticle['date']);
             $this->Template->newstext = $arrArticle['newstext'];
-            $this->Template->link = str_replace('.html', '/' .$arrArticle['alias'] . '.html',
-                \Contao\Controller::replaceInsertTags($this->url));
             $this->Template->gallery = $arrArticle['gallery'];
+            $this->Template->link = $link;
+            $this->Template->hasTeaser = true;
+            $this->Template->hasMetaFields = true;
+            $this->Template->more = '<a href="' . $link . '">mehr</a>';
+
+            #-- teaser
+            $maxTeaserLength = 115;
+            if (strlen($arrArticle['newstext']) > $maxTeaserLength) {
+                #-- kürze teaser string
+                $teaser = \StringUtil::substrHtml($arrArticle['newstext'], $maxTeaserLength);
+                #-- füge '...' hinzu
+                // +-- wenn ein </p> am Schluss steht, muss das '...' davor eingefügt werden.
+                if (strlen($teaser) == strrpos($teaser, '</p>') + 4) {
+                    $teaser = substr($teaser, 0, strlen($teaser) - 4) . '&nbsp;...</p>';
+                } else {
+                    $teaser .= '&nbsp;...';
+                }
+            } else {
+                if ($arrArticle['newstext'] != "") {
+                    $this->Template->link = null;
+                    $this->Template->more = false;
+                }
+                $teaser = $arrArticle['newstext'];
+            }
+
+            $this->Template->teaser = $teaser;
         }
     }
 }
