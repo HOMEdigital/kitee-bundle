@@ -3,7 +3,7 @@
         <?php
         $target = strpos($this->url, 'http') > -1 ? 'target="_blank"' : '';
         if ($this->url != "" && $this->linkTitle == "") : ?>
-        <a href="<?= $this->url ?>" <?= $target ?>">
+        <a href="<?= $this->url ?>" <?= $target ?>>
             <?php endif; ?>
 
             <?php
