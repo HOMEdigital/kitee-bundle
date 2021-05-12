@@ -23,3 +23,6 @@ $GLOBALS['TL_LANG']['CTE']['hm_hero_container_end']     = array('Hero Container 
 $GLOBALS['TL_LANG']['CTE']['hm_hr']                     = array('Linie', 'Horizontale Linie');
 $GLOBALS['TL_LANG']['CTE']['hm_anchor']                 = array('Anker', 'Setzt einen Anker');
 $GLOBALS['TL_LANG']['CTE']['hm_news_select']            = array('News Auswahl', 'Anzeige eines einzelnen News-Elements');
+
+$GLOBALS['TL_LANG']['CTE']['hm_layout_container_start'] = array('Layout-Container Öffnen', 'Öffnendes Element für einen Layout-Container');
+$GLOBALS['TL_LANG']['CTE']['hm_layout_container_end'] = array('Layout-Container Schliessen', 'Schliessendes Element für einen Layout-Container');

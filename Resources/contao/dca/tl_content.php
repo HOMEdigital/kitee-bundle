@@ -50,6 +50,51 @@ try{
         ->addPaletteGroup('tiles', array('hm_tile_item_big'), 'hm_content_container_start', 4)
     ;
 
+    #-- hm_layout --------------------------------------------
+    $tl_content
+        ->addField('select', 'hm_design_dyn', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getDynOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+                'options_field' => 'design'
+            ),
+        ))
+        ->addField('select', 'hm_layout_dyn', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getDynOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+                'options_field' => 'layout'
+            ),
+        ))
+        ->addField('select', 'hm_step_inner_top_dyn', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getDynOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+                'options_field' => 'step_inner_top'
+            ),
+        ))
+        ->addField('select', 'hm_step_inner_bottom_dyn', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getDynOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+                'options_field' => 'step_inner_bottom'
+            ),
+        ))
+        ->copyPalette('hm_kitee_content_base', 'hm_layout_container_start')
+        ->addPaletteGroup('layout',
+            array('hm_design_dyn', 'hm_layout_dyn', 'hm_step_inner_top_dyn', 'hm_step_inner_bottom_dyn'),
+            'hm_layout_container_start', 2
+        )
+    ;
+
     #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
@@ -103,7 +148,7 @@ try{
             'tempPrefix' => 'news_',
         ))
         ->copyPalette('hm_kitee_content_base', 'hm_news_select')
-        ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design', 'url'), 'hm_news_select', 2);
+        ->addPaletteGroup('hm_news_select', array('hm_news_select', 'hm_template', 'hm_design', 'url'), 'hm_news_select', 2)
     ;
 
     $tl_content
@@ -179,6 +224,23 @@ try{
  */
 class tl_content extends \Backend
 {
+    public function getDynOptions(\Contao\DataContainer $dc)
+    {
+        $arrData = $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field];
+        $container = \System::getContainer();
+
+        if ($container === null) {
+            return [];
+        }
+
+        if ($container->hasParameter('home_digital') && \is_array($params = $container->getParameter('home_digital'))) {
+            if (isset($arrData['eval']['options_field']) && isset($params[$arrData['eval']['options_field']])) {
+                return $params[$arrData['eval']['options_field']];
+            }
+        }
+        return [];
+    }
+
     public function getNewsSelectOptions(\Contao\DataContainer $dc){
         $return = array();
 

@@ -30,6 +30,11 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_step_outer_bottom']    = array('Aussen-Abst
 $GLOBALS['TL_LANG'][$moduleName]['hm_design']               = array('Design', 'Definiert das Aussehen');
 $GLOBALS['TL_LANG'][$moduleName]['hm_gap_inner']            = array('Innen-Abstand links  & rechts (padding)', 'Definiert einen inneren, horizontalen Abstand');
 
+#-- layout
+$GLOBALS['TL_LANG'][$moduleName]['hm_design_dyn'] = array('Design', 'Definiert das Aussehen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_layout_dyn'] = array('Layout', 'Definiert die Breite des Artikels');
+$GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_top_dyn'] = array('Innen-Abstand oben (padding)', 'Definiert einen inneren, oberen vertikalen Abstand');
+$GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_bottom_dyn'] = array('Innen-Abstand unten (padding)', 'Definiert einen inneren, unteren vertikalen Abstand');
 
 $GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited']           = 'Begrenzte Breite';
 $GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited-m']         = 'Begrenzte Breite - medium';
