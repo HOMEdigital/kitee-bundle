@@ -40,6 +40,19 @@ $GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited']           = 'Begrenzte Bre
 $GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited-m']         = 'Begrenzte Breite - medium';
 $GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited-s']         = 'Begrenzte Breite - small';
 
+#-- grid
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_size'] = array('Spalten Abstand', 'Definiert den Abstand zwiechen den Spalten');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_divider'] = array('Spalten Trenner', 'Definiert ob ein Trennstrich zwischen den Spalten angezeigt werden soll');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_match'] = array('Gleiche Höhe für alle Elemente', 'Definiert ob alle Kind-Elemente die gleiche Höhe haben sollen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_masonry'] = array('Masonry', 'Definiert ob die Kind-Elemente nach dem Masonry-Layout angeordnert werden sollen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_width'] = array('Spaltenenbreite', 'Definiert die Breite der Spalte für alle Bildschrimgrößen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_s'] = array('Spaltenenbreite S', 'Definiert die Breite der Spalte bei Bildschrimen mit 640px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_m'] = array('Spaltenenbreite M', 'Definiert die Breite der Spalte bei Bildschrimen mit 960px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_l'] = array('Spaltenenbreite L', 'Definiert die Breite der Spalte bei Bildschrimen mit 1200px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_xl'] = array('Spaltenenbreite XL', 'Definiert die Breite der Spalte bei Bildschrimen mit 1600px und mehr');
+
+
+
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-no']        = 'Kein Abstand';
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-l']         = 'Abstand oben - large';
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-m']         = 'Abstand oben - medium';

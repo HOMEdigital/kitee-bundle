@@ -25,7 +25,10 @@ array_insert($GLOBALS['TL_CTE'], 2, array
         'hm_anchor'                     => 'Home\KiteeBundle\Resources\contao\elements\AnchorElement',
         'hm_news_select'                => 'Home\KiteeBundle\Resources\contao\elements\NewsSelectElement',
         'hm_layout_container_start'     => 'Home\KiteeBundle\Resources\contao\elements\LayoutStartElement',
-        'hm_layout_container_end'       => 'Home\KiteeBundle\Resources\contao\elements\LayoutEndElement'
+        'hm_layout_container_end'       => 'Home\KiteeBundle\Resources\contao\elements\LayoutEndElement',
+        'hm_grid_container_start'       => 'Home\KiteeBundle\Resources\contao\elements\GridStartElement',
+        'hm_grid_container_column'      => 'Home\KiteeBundle\Resources\contao\elements\GridColumnElement',
+        'hm_grid_container_end'         => 'Home\KiteeBundle\Resources\contao\elements\GridEndElement',
     )
 ));
 

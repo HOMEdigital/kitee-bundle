@@ -1,2 +1,2 @@
-    </div>
-</div>
+<div class="<?= $this->class ?>">
+    <div class="hm-container-layout-inside">

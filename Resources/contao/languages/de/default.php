@@ -26,3 +26,7 @@ $GLOBALS['TL_LANG']['CTE']['hm_news_select']            = array('News Auswahl', 
 
 $GLOBALS['TL_LANG']['CTE']['hm_layout_container_start'] = array('Layout-Container Öffnen', 'Öffnendes Element für einen Layout-Container');
 $GLOBALS['TL_LANG']['CTE']['hm_layout_container_end'] = array('Layout-Container Schliessen', 'Schliessendes Element für einen Layout-Container');
+
+$GLOBALS['TL_LANG']['CTE']['hm_grid_container_start'] = array('Spalten-Container Öffnen', 'Öffnendes Element für einen Spalten-Container');
+$GLOBALS['TL_LANG']['CTE']['hm_grid_container_column'] = array('Spalten-Container Spalte', 'Weiteres Spalten Element für einen Spalten-Container');
+$GLOBALS['TL_LANG']['CTE']['hm_grid_container_end'] = array('Spalten-Container Schliessen', 'Schliessendes Element für einen Spalten-Container');

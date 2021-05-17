@@ -1,0 +1,2 @@
+</div>
+<div class="<?= $this->class ?><?= $this->hm_grid_width ? ' uk-width-'.$this->hm_grid_width : ''?><?= $this->hm_grid_width_s ? ' uk-width-'.$this->hm_grid_width_s.'@s' : ''?><?= $this->hm_grid_width_m ? ' uk-width-'.$this->hm_grid_width_m.'@m' : ''?><?= $this->hm_grid_width_l ? ' uk-width-'.$this->hm_grid_width_l.'@l' : ''?><?= $this->hm_grid_width_xl ? ' uk-width-'.$this->hm_grid_width_xl.'@xl' : ''?>">

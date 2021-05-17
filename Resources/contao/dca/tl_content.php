@@ -95,6 +95,105 @@ try{
         )
     ;
 
+    #-- hm_grid --------------------------------------------
+    $tl_content
+        ->addField('select', 'hm_grid_size', array(
+            'options' => array(
+                'uk-grid-small',
+                'uk-grid-medium',
+                'uk-grid-large',
+                'uk-grid-collapse'
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50'
+            ),
+        ))
+        ->addField('select', 'hm_grid_divider', array(
+            'options' => array(
+                'uk-grid-divider',
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_match', array(
+            'options' => array(
+                'uk-grid-match',
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_masonry', array(
+            'options' => array(
+                'uk-grid-masonry',
+            ),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_width', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_width_s', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_width_m', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_width_l', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_grid_width_xl', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+
+        ->copyPalette('hm_kitee_content_base', 'hm_grid_container_start')
+        ->addPaletteGroup('layout',
+            array('hm_grid_size', 'hm_grid_divider', 'hm_grid_match', 'hm_grid_masonry', 'hm_grid_width',
+                'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl'),
+            'hm_grid_container_start', 2
+        )
+
+        ->copyPalette('hm_kitee_content_base', 'hm_grid_container_column')
+        ->addPaletteGroup('layout',
+            array('hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',),
+            'hm_grid_container_column', 2
+        )
+    ;
+
     #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
@@ -224,6 +323,30 @@ try{
  */
 class tl_content extends \Backend
 {
+    public function getGridWidthOptions(\Contao\DataContainer $dc)
+    {
+        return array(
+            'auto',
+            'expand',
+            '1-1',
+            '1-2',
+            '1-3',
+            '2-3',
+            '1-4',
+            '2-4',
+            '3-4',
+            '1-5',
+            '2-5',
+            '3-5',
+            '4-5',
+            '1-6',
+            '2-6',
+            '3-6',
+            '4-6',
+            '5-6',
+        );
+    }
+
     public function getDynOptions(\Contao\DataContainer $dc)
     {
         $arrData = $GLOBALS['TL_DCA'][$dc->table]['fields'][$dc->field];
