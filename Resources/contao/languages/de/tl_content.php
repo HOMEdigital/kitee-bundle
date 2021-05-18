@@ -51,6 +51,19 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_m'] = array('Spaltenenbreite M',
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_l'] = array('Spaltenenbreite L', 'Definiert die Breite der Spalte bei Bildschrimen mit 1200px und mehr');
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_xl'] = array('Spaltenenbreite XL', 'Definiert die Breite der Spalte bei Bildschrimen mit 1600px und mehr');
 
+#-- slider
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_autoplay'] = array('Autoplay', 'Definiert ob Autoplay verwendet werden soll');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_autoplay_interval'] = array('Autoplay Intervall', 'Definiert den Autoplay Intervall in Millisekunden');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_center'] = array('Center', 'Definiert ob der Aktive-Slide zentriert angeordnet werden soll');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_draggable'] = array('Draggable', 'Definiert ob die Slides mit dem Mauszeiger gezogen werden können');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_infinite'] = array('Infinite', 'Definiert ob die Slides in einer Endlosschleife laufen sollen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_pause'] = array('Pause-on-Hover', 'Definiert ob das Autoplay angehalten werden soll wenn sich der Mauszeiger auf einen Slide befindet');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_sets'] = array('Gruppieren', 'Definiert ob die Slides einzeln oder als Gruppe gescrollt werden sollen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_velocity'] = array('Geschwindigkeit', 'Definiert die Geschwindigkeit der Animation in Pixel/ms');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_easing'] = array('Animation', 'Definiert die Animation des Slide-wechsel');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_index'] = array('Index', 'Definiert welches Slider Element als erstes angezeigt werden soll');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_nav_outside'] = array('Navigation Außerhalb', 'Definiert ob die Navigations-Elemente außerhalb der Slides angezeigt werden sollen');
+$GLOBALS['TL_LANG'][$moduleName]['hm_slider_nav_hide_hover'] = array('Navigation Verbergen', 'Definiert ob die Navigations-Elemente nur angezeigt werden sollen wenn der Mauszeiger sich auf den Slides befindet');
 
 
 $GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-no']        = 'Kein Abstand';

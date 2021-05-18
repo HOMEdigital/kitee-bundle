@@ -1,0 +1,11 @@
+<?php if (is_array($this->multiImages) && count($this->multiImages) == 1) : ?>
+<li>
+    <?= $this->insert('picture_default', $this->multiImages[0]->picture)?>
+</li>
+    <?php elseif(is_array($this->multiImages) && count($this->multiImages) > 1) : ?>
+    <?php foreach ($this->multiImages as $picture) : ?>
+<li>
+    <?= $this->insert('picture_default', $picture->picture) ?>
+</li>
+    <?php endforeach; ?>
+<?php endif; ?>

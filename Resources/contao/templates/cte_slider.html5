@@ -1,0 +1,19 @@
+<div class="<?= $this->class ?>" uk-slider="autoplay: <?= $this->hm_slider_autoplay === '1' ? 'true' : 'false' ?>; autoplay-interval: <?= $this->hm_slider_autoplay_interval ?>; center: <?= $this->hm_slider_center === '1' ? 'true' : 'false' ?>; draggable: <?= $this->hm_slider_draggable === '1' ? 'true' : 'false' ?>; easing: <?= $this->hm_slider_easing ?>; finite: <?= $this->hm_slider_infinite === '1' ? 'false' : 'true' ?>; index: <?= $this->hm_slider_index ?>; pause-on-hover: <?= $this->hm_slider_pause === '1' ? 'true' : 'false' ?>; sets: <?= $this->hm_slider_sets === '1' ? 'true' : 'false' ?>; velocity: <?= $this->hm_slider_velocity ?>;">
+    <div class="uk-slider-container uk-position-relative uk-visible-toggle uk-light">
+        <ul class="uk-slider-items uk-grid<?= $this->hm_grid_size ? ' '.$this->hm_grid_size : ''?><?= $this->hm_grid_width ? ' uk-child-width-'.$this->hm_grid_width : ''?><?= $this->hm_grid_width_s ? ' uk-child-width-'.$this->hm_grid_width_s.'@s' : ''?><?= $this->hm_grid_width_m ? ' uk-child-width-'.$this->hm_grid_width_m.'@m' : ''?><?= $this->hm_grid_width_l ? ' uk-child-width-'.$this->hm_grid_width_l.'@l' : ''?><?= $this->hm_grid_width_xl ? ' uk-child-width-'.$this->hm_grid_width_xl.'@xl' : ''?>">
+            <?php
+            #-- image
+            if ($this->multiSRC) {
+                $template = new \FrontendTemplate('part_hm_box_image_slider');
+                $template->setData($this->arrData);
+                echo $template->parse();
+            }
+            ?>
+        </ul>
+
+        <a class="<?= $this->hm_slider_nav_outside === '1' ? 'uk-position-center-left-out' : 'uk-position-center-left' ?> uk-position-small <?= $this->hm_slider_nav_hide_hover === '1' ? 'uk-hidden-hover' : '' ?>" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="<?= $this->hm_slider_nav_outside === '1' ? 'uk-position-center-right-out' : 'uk-position-center-right' ?> uk-position-small <?= $this->hm_slider_nav_hide_hover === '1' ? 'uk-hidden-hover' : '' ?>" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+    </div>
+
+</div>

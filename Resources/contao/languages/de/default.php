@@ -30,3 +30,5 @@ $GLOBALS['TL_LANG']['CTE']['hm_layout_container_end'] = array('Layout-Container 
 $GLOBALS['TL_LANG']['CTE']['hm_grid_container_start'] = array('Spalten-Container Öffnen', 'Öffnendes Element für einen Spalten-Container');
 $GLOBALS['TL_LANG']['CTE']['hm_grid_container_column'] = array('Spalten-Container Spalte', 'Weiteres Spalten Element für einen Spalten-Container');
 $GLOBALS['TL_LANG']['CTE']['hm_grid_container_end'] = array('Spalten-Container Schliessen', 'Schliessendes Element für einen Spalten-Container');
+
+$GLOBALS['TL_LANG']['CTE']['hm_slider'] = array('Image Slider', 'Image Slider');

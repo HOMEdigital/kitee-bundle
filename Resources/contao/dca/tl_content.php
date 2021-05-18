@@ -106,7 +106,8 @@ try{
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50'
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
             ),
         ))
         ->addField('select', 'hm_grid_divider', array(
@@ -193,6 +194,96 @@ try{
             'hm_grid_container_column', 2
         )
     ;
+
+    #-- hm_slider
+    $tl_content
+        ->addField('checkbox','hm_slider_autoplay', array(
+            'default' => 0,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('integer','hm_slider_autoplay_interval', array(
+            'default' => 7000,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_center', array(
+            'default' => 0,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_draggable', array(
+            'default' => 1,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_infinite', array(
+            'default' => 1,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_pause', array(
+            'default' => 1,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_sets', array(
+            'default' => 0,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('integer','hm_slider_velocity', array(
+            'default' => 1,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('text', 'hm_slider_easing', array(
+            'default' => 'ease',
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('integer','hm_slider_index', array(
+            'default' => 0,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_nav_hide_hover', array(
+            'default' => 1,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->addField('checkbox','hm_slider_nav_outside', array(
+            'default' => 0,
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
+        ->copyPalette('hm_kitee_content_base', 'hm_slider')
+        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_slider', 2)
+        ->addPaletteGroup('slider',
+            array('hm_slider_autoplay', 'hm_slider_autoplay_interval', 'hm_slider_center', 'hm_slider_draggable',
+                'hm_slider_infinite', 'hm_slider_pause', 'hm_slider_sets', 'hm_slider_velocity', 'hm_slider_easing',
+                'hm_slider_index', 'hm_slider_nav_hide_hover', 'hm_slider_nav_outside'),
+            'hm_slider', 3
+        )
+        ->addPaletteGroup('layout',
+            array('hm_grid_size',
+                'hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',),
+            'hm_slider', 4
+        )
+    ;
+
 
     #-- hm_anchor --------------------------------------------
     $tl_content
