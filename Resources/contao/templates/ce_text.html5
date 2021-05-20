@@ -1,0 +1,17 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+  <div class="<?= $this->hm_grid_width ? 'uk-column-'.$this->hm_grid_width : ''?><?= $this->hm_grid_width_s ? ' uk-column-'.$this->hm_grid_width_s.'@s' : ''?><?= $this->hm_grid_width_m ? ' uk-column-'.$this->hm_grid_width_m.'@m' : ''?><?= $this->hm_grid_width_l ? ' uk-column-'.$this->hm_grid_width_l.'@l' : ''?><?= $this->hm_grid_width_xl ? ' uk-column-'.$this->hm_grid_width_xl.'@xl' : ''?>">
+  <?php if (!$this->addBefore): ?>
+    <?= $this->text ?>
+  <?php endif; ?>
+
+  <?php if ($this->addImage): ?>
+    <?php $this->insert('image', $this->arrData); ?>
+  <?php endif; ?>
+
+  <?php if ($this->addBefore): ?>
+    <?= $this->text ?>
+  <?php endif; ?>
+  </div>
+<?php $this->endblock(); ?>

@@ -284,6 +284,12 @@ try{
         )
     ;
 
+    #-- add column layout to text element --------------------------------------------
+    $tl_content
+        ->addPaletteGroup('layout', array('hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m',
+            'hm_grid_width_l', 'hm_grid_width_xl'), 'text', 3
+        )
+    ;
 
     #-- hm_anchor --------------------------------------------
     $tl_content
