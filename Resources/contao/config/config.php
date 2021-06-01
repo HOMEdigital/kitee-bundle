@@ -37,3 +37,7 @@ $GLOBALS['TL_WRAPPERS']['start'][]  = 'hm_hero_container_start';
 $GLOBALS['TL_WRAPPERS']['stop'][]   = 'hm_hero_container_end';
 $GLOBALS['TL_WRAPPERS']['start'][]  = 'hm_content_container_start';
 $GLOBALS['TL_WRAPPERS']['stop'][]   = 'hm_content_container_end';
+$GLOBALS['TL_WRAPPERS']['start'][]  = 'hm_layout_container_start';
+$GLOBALS['TL_WRAPPERS']['stop'][]   = 'hm_layout_container_end';
+$GLOBALS['TL_WRAPPERS']['start'][]  = 'hm_grid_container_start';
+$GLOBALS['TL_WRAPPERS']['stop'][]   = 'hm_grid_container_end';
