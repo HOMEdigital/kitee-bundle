@@ -12,6 +12,7 @@
 $moduleName = 'tl_content';
 
 $GLOBALS['TL_LANG'][$moduleName]['layout_legend']       = 'Layoutbereich';
+$GLOBALS['TL_LANG'][$moduleName]['text_column_layout_legend'] = 'Spalten-Layoutbereich';
 
 $GLOBALS['TL_LANG'][$moduleName]['anchor'] = array('Anker-Name', 'Name des Ankers, auf den gesprungen werden soll');
 $GLOBALS['TL_LANG'][$moduleName]['search_parameter'] = array('Such-Parameter', 'Parameter für die Suche');

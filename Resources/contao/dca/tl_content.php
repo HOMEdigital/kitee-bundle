@@ -286,7 +286,7 @@ try{
 
     #-- add column layout to text element --------------------------------------------
     $tl_content
-        ->addPaletteGroup('layout', array('hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m',
+        ->addPaletteGroup('text_column_layout', array('hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m',
             'hm_grid_width_l', 'hm_grid_width_xl'), 'text', 3
         )
     ;
@@ -422,6 +422,15 @@ class tl_content extends \Backend
 {
     public function getGridWidthOptions(\Contao\DataContainer $dc)
     {
+        if(str_contains($dc->palette, 'text_column_layout_legend')){
+            return array(
+                '1-2',
+                '1-3',
+                '1-4',
+                '1-5',
+                '1-6'
+            );
+        }
         return array(
             'auto',
             'expand',
