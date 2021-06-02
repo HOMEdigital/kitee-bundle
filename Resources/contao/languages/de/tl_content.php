@@ -13,6 +13,7 @@ $moduleName = 'tl_content';
 
 $GLOBALS['TL_LANG'][$moduleName]['layout_legend']       = 'Layoutbereich';
 $GLOBALS['TL_LANG'][$moduleName]['text_column_layout_legend'] = 'Spalten-Layoutbereich';
+$GLOBALS['TL_LANG'][$moduleName]['background_attachment_layout_legend'] = 'Background-Layoutbereich';
 
 $GLOBALS['TL_LANG'][$moduleName]['anchor'] = array('Anker-Name', 'Name des Ankers, auf den gesprungen werden soll');
 $GLOBALS['TL_LANG'][$moduleName]['search_parameter'] = array('Such-Parameter', 'Parameter für die Suche');
@@ -30,6 +31,15 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_step_outer_top']       = array('Aussen-Abst
 $GLOBALS['TL_LANG'][$moduleName]['hm_step_outer_bottom']    = array('Aussen-Abstand unten (margin)', 'Definiert einen äusseren, unteren vertikalen Abstand');
 $GLOBALS['TL_LANG'][$moduleName]['hm_design']               = array('Design', 'Definiert das Aussehen');
 $GLOBALS['TL_LANG'][$moduleName]['hm_gap_inner']            = array('Innen-Abstand links  & rechts (padding)', 'Definiert einen inneren, horizontalen Abstand');
+
+#-- background attachment
+$GLOBALS['TL_LANG'][$moduleName]['hm_position'] = array('Position', 'Definiert die Position. Unnötig wenn Größe angegeben.');
+$GLOBALS['TL_LANG'][$moduleName]['hm_size'] = array('Größe', 'Definiert die Größe');
+$GLOBALS['TL_LANG'][$moduleName]['hm_height'] = array('Höhe', 'Definiert die Höhe (S: 150px; M: 300px; L: 450px; XL: 600px; 2XL: 750px;)');
+$GLOBALS['TL_LANG'][$moduleName]['hm_width_s'] = array('Breite S', 'Definiert die Breite bei Bildschrimen mit 640px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_width_m'] = array('Breite M', 'Definiert die Breite bei Bildschrimen mit 960px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_width_l'] = array('Breite L', 'Definiert die Breite bei Bildschrimen mit 1200px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_width_xl'] = array('Breite XL', 'Definiert die Breite bei Bildschrimen mit 1600px und mehr');
 
 #-- layout
 $GLOBALS['TL_LANG'][$moduleName]['hm_design_dyn'] = array('Design', 'Definiert das Aussehen');

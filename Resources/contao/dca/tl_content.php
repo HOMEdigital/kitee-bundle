@@ -291,6 +291,74 @@ try{
         )
     ;
 
+    #-- hm_background_attachment --------------------------------------------
+    $tl_content
+        ->addField('select', 'hm_position', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getPositionOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_size', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getSizeOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_height', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getHeightWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+
+        ->addField('select', 'hm_width_s', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_width_m', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_width_l', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->addField('select', 'hm_width_xl', array(
+            'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+            ),
+        ))
+        ->copyPalette('hm_kitee_content_base', 'hm_background_attachment')
+        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_background_attachment', 2)
+        ->addPaletteGroup('background_attachment_layout', array(
+            'hm_position', 'hm_size',
+            'hm_height',
+            'hm_width_s', 'hm_width_m','hm_width_l', 'hm_width_xl',
+        ), 'hm_background_attachment', 3)
+    ;
+
     #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
@@ -420,9 +488,44 @@ try{
  */
 class tl_content extends \Backend
 {
+    public function getSizeOptions()
+    {
+        return array(
+            'cover',
+            'contain',
+            '1-1',
+        );
+    }
+    public function getHeightWidthOptions()
+    {
+        return array(
+            'small',
+            'medium',
+            'large',
+            'xlarge',
+            '2xlarge',
+        );
+    }
+
+    public function getPositionOptions(\Contao\DataContainer $dc)
+    {
+        return array(
+            'top-left',
+            'top-center',
+            'top-right',
+            'center-left',
+            'center-center',
+            'center-right',
+            'bottom-left',
+            'bottom-center',
+            'bottom-right',
+        );
+    }
+
     public function getGridWidthOptions(\Contao\DataContainer $dc)
     {
-        if(str_contains($dc->palette, 'text_column_layout_legend')){
+        if(str_contains($dc->palette, 'text_column_layout_legend') ||
+            str_contains($dc->palette, 'background_attachment_layout')){
             return array(
                 '1-2',
                 '1-3',

@@ -1,0 +1,37 @@
+<?php
+#-- size
+if($this->hm_size && $this->hm_size !== ''){
+    if($this->hm_size === '1-1'){
+        $size = 'uk-background-width-1-1 uk-background-height-1-1';
+    }else{
+        $size = 'uk-background-' . $this->hm_size;
+    }
+}
+#-- position
+if($this->hm_position && $this->hm_position !== ''){
+    $position = ' uk-background-' . $this->hm_position;
+}
+#-- heigth
+if($this->hm_height && $this->hm_height !== ''){
+    $h = ' uk-height-' . $this->hm_height;
+}
+#-- width
+if($this->hm_width_s && $this->hm_width_s !== ''){
+    $ws = ' uk-width-' . $this->hm_width_s . '@s';
+}
+if($this->hm_width_m && $this->hm_width_m !== ''){
+    $wm = ' uk-width-' . $this->hm_width_m . '@m';
+}
+if($this->hm_width_l && $this->hm_width_l !== ''){
+    $wl = ' uk-width-' . $this->hm_width_l . '@l';
+}
+if($this->hm_width_xl && $this->hm_width_xl !== ''){
+    $wxl = ' uk-width-' . $this->hm_width_xl . '@xl';
+}
+
+if($this->multiImages && count($this->multiImages) > 0 && $this->multiImages[0]->src):
+?>
+<div class="uk-background-fixed <?=$size ?: ''?><?=$position ?: ''?><?=$h?:''?><?=$ws?:''?><?=$wm?:''?><?=$wl?:''?><?=$wxl?:''?>"
+     style="background-image: url(<?=$this->multiImages[0]->src?>);"></div>
+<?php
+endif;

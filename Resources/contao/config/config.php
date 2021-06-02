@@ -30,6 +30,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
         'hm_grid_container_column'      => 'Home\KiteeBundle\Resources\contao\elements\GridColumnElement',
         'hm_grid_container_end'         => 'Home\KiteeBundle\Resources\contao\elements\GridEndElement',
         'hm_slider'                     => 'Home\KiteeBundle\Resources\contao\elements\SliderElement',
+        'hm_background_attachment'      => 'Home\KiteeBundle\Resources\contao\elements\BackgroundAttachmentElement',
     )
 ));
 

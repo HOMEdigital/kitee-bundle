@@ -32,3 +32,4 @@ $GLOBALS['TL_LANG']['CTE']['hm_grid_container_column'] = array('Spalten-Containe
 $GLOBALS['TL_LANG']['CTE']['hm_grid_container_end'] = array('Spalten-Container Schliessen', 'Schliessendes Element für einen Spalten-Container');
 
 $GLOBALS['TL_LANG']['CTE']['hm_slider'] = array('Image Slider', 'Image Slider');
+$GLOBALS['TL_LANG']['CTE']['hm_background_attachment'] = array('Background Attachment (Parallax)', 'Background Attachment (Parallax)');
