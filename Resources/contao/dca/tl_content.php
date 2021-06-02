@@ -359,6 +359,19 @@ try{
         ), 'hm_background_attachment', 3)
     ;
 
+    #-- hm_gallery --------------------------------------------
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_gallery')
+        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_gallery', 2)
+        ->addPaletteGroup('layout', array(
+            'hm_grid_size', 'hm_grid_width',
+            'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',
+            'hm_grid_masonry',
+            ),
+            'hm_gallery', 3
+        )
+    ;
+
     #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(

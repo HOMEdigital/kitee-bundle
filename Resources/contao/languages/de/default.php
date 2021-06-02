@@ -33,3 +33,4 @@ $GLOBALS['TL_LANG']['CTE']['hm_grid_container_end'] = array('Spalten-Container S
 
 $GLOBALS['TL_LANG']['CTE']['hm_slider'] = array('Image Slider', 'Image Slider');
 $GLOBALS['TL_LANG']['CTE']['hm_background_attachment'] = array('Background Attachment (Parallax)', 'Background Attachment (Parallax)');
+$GLOBALS['TL_LANG']['CTE']['hm_gallery'] = array('Galerie', 'Galerie');
