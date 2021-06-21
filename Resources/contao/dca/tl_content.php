@@ -19,6 +19,7 @@ try{
         ->mergeFieldSettings('start','eval', array('tl_class' => 'w50 clr'))
         ->addPaletteGroup('type', array('type'), 'hm_kitee_content_base')
         ->addPaletteGroup('protected', array('protected'), 'hm_kitee_content_base')
+        ->addPaletteGroup('expert', array('guests','cssID'), 'hm_kitee_content_base')
         ->addPaletteGroup('invisible', array('invisible', 'guests', 'start', 'stop'), 'hm_kitee_content_base')
     ;
 
