@@ -10,6 +10,29 @@ namespace Home\KiteeBundle\Resources;
 
 class HomeKiteeHelper 
 {
+    public static function getUkColumnClasses($all, $s, $m, $l, $xl)
+    {
+        $classes = array();
+
+        if($all){
+            $classes[] = 'uk-column-' . $all;
+        }
+        if($s){
+            $classes[] = 'uk-column-' . $s . '@s';
+        }
+        if($m){
+            $classes[] = 'uk-column-' . $s . '@m';
+        }
+        if($l){
+            $classes[] = 'uk-column-' . $s . '@l';
+        }
+        if($xl){
+            $classes[] = 'uk-column-' . $s . '@xl';
+        }
+
+        return $classes;
+    }
+
     /**
      * creates an array with class names out of an given array
      *

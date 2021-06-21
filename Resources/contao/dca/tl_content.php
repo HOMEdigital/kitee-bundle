@@ -269,8 +269,9 @@ try{
                 'tl_class' => 'w50',
             ),
         ))
+        ->addField('gallery', 'gallery')
         ->copyPalette('hm_kitee_content_base', 'hm_slider')
-        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_slider', 2)
+        ->addPaletteGroup('image', array('gallery','size','sortBy'), 'hm_slider', 2)
         ->addPaletteGroup('slider',
             array('hm_slider_autoplay', 'hm_slider_autoplay_interval', 'hm_slider_center', 'hm_slider_draggable',
                 'hm_slider_infinite', 'hm_slider_pause', 'hm_slider_sets', 'hm_slider_velocity', 'hm_slider_easing',
@@ -351,7 +352,7 @@ try{
             ),
         ))
         ->copyPalette('hm_kitee_content_base', 'hm_background_attachment')
-        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_background_attachment', 2)
+        ->addPaletteGroup('image', array('gallery','size','sortBy'), 'hm_background_attachment', 2)
         ->addPaletteGroup('background_attachment_layout', array(
             'hm_position', 'hm_size',
             'hm_height',
@@ -362,7 +363,7 @@ try{
     #-- hm_gallery --------------------------------------------
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_gallery')
-        ->addPaletteGroup('image', array('multiSRC','size','sortBy'), 'hm_gallery', 2)
+        ->addPaletteGroup('image', array('gallery','size','sortBy'), 'hm_gallery', 2)
         ->addPaletteGroup('layout', array(
             'hm_grid_size', 'hm_grid_width',
             'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',

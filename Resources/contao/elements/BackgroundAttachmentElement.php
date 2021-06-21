@@ -34,7 +34,7 @@ class BackgroundAttachmentElement extends \ContentElement
         if (TL_MODE == 'BE') {
             $this->Template             = new \BackendTemplate('list_image_title');
             $this->Template->title      = $this->headline;
-            $this->Template->image      = DataHelper::getMultiImgObjs($this->multiSRC, array('120', '120'))[0];
+            $this->Template->image      = DataHelper::getMultiImgObjs($this->galleryOrder, array('120', '120'))[0];
         } else {
             $GLOBALS['TL_CSS'][] = 'bundles/homekitee/uikit-3.6.21/css/uikit.min.css';
             $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/homekitee/uikit-3.6.21/js/uikit.min.js';
@@ -49,8 +49,8 @@ class BackgroundAttachmentElement extends \ContentElement
      */
     private function generateFrontend()
     {
-        if ($this->multiSRC) {
-            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->multiSRC, deserialize($this->size));
+        if ($this->galleryOrder) {
+            $this->Template->multiImages = DataHelper::getMultiImgObjs($this->galleryOrder, deserialize($this->size));
         }
 
         //$options =

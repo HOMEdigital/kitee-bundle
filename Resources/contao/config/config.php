@@ -6,10 +6,12 @@
  * Time: 14:50
  */
 
+use Home\KiteeBundle\Resources\contao\hooks\GetContentElementListener;
+
 #-- hooks --------------------------------------------------------------------------------------------------------------
 $GLOBALS['TL_HOOKS']['getArticle'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetArticle', 'setLayoutClasses');
 $GLOBALS['TL_HOOKS']['getContentElement'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetContentElement', 'setLayoutClasses');
-
+$GLOBALS['TL_HOOKS']['getContentElement'][] = [GetContentElementListener::class, '__invoke'];
 
 #-- content elements -----------------------------------------------------------------------------------------------
 array_insert($GLOBALS['TL_CTE'], 2, array
