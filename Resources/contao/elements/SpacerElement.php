@@ -34,6 +34,8 @@ class SpacerElement extends \ContentElement
             $this->strTemplate          = 'be_wildcard';
             $this->Template             = new \BackendTemplate($this->strTemplate);
             $this->Template->title      = $this->headline;
+            $this->Template->wildcard   = 'Innen-Abstand oben (padding): <b>' . $GLOBALS['TL_LANG']['tl_content'][$this->hm_step_inner_top_dyn] .
+                '</b> | Innen-Abstand unten (padding): <b>' . $GLOBALS['TL_LANG']['tl_content'][$this->hm_step_inner_bottom_dyn] . '</b>';
         } else {
             $this->generateFrontend();
         }
