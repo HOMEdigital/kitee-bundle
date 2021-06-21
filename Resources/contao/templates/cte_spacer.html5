@@ -1,0 +1,3 @@
+<div class="hm-spacer <?php echo $this->class ?>">
+    <div></div>
+</div>

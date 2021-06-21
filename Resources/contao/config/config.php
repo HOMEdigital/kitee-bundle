@@ -32,6 +32,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array
         'hm_slider'                     => 'Home\KiteeBundle\Resources\contao\elements\SliderElement',
         'hm_background_attachment'      => 'Home\KiteeBundle\Resources\contao\elements\BackgroundAttachmentElement',
         'hm_gallery'                    => 'Home\KiteeBundle\Resources\contao\elements\GalleryElement',
+        'hm_spacer'                     => 'Home\KiteeBundle\Resources\contao\elements\SpacerElement',
     )
 ));
 

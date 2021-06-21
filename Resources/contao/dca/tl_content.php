@@ -372,6 +372,15 @@ try{
         )
     ;
 
+    #-- hm_spacer --------------------------------------------
+    $tl_content
+        ->copyPalette('hm_kitee_content_base', 'hm_spacer')
+        ->addPaletteGroup('layout',
+            array('hm_step_inner_top_dyn', 'hm_step_inner_bottom_dyn'),
+            'hm_spacer', 2
+        )
+    ;
+
     #-- hm_anchor --------------------------------------------
     $tl_content
         ->addField('text', 'hm_anchor_id', array(
