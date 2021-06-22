@@ -27,10 +27,7 @@ $GLOBALS['TL_LANG'][$moduleName]['bkg-dark-grey']       = 'Dunkelgrau';
 $GLOBALS['TL_LANG'][$moduleName]['hm_layout']               = array('Layout', 'Definiert die Breite des Artikels');
 $GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_top']       = array('Innen-Abstand oben (padding)', 'Definiert einen inneren, oberen vertikalen Abstand');
 $GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_bottom']    = array('Innen-Abstand unten (padding)', 'Definiert einen inneren, unteren vertikalen Abstand');
-$GLOBALS['TL_LANG'][$moduleName]['hm_step_outer_top']       = array('Aussen-Abstand oben (margin)', 'Definiert einen äusseren, oberen vertikalen Abstand');
-$GLOBALS['TL_LANG'][$moduleName]['hm_step_outer_bottom']    = array('Aussen-Abstand unten (margin)', 'Definiert einen äusseren, unteren vertikalen Abstand');
 $GLOBALS['TL_LANG'][$moduleName]['hm_design']               = array('Design', 'Definiert das Aussehen');
-$GLOBALS['TL_LANG'][$moduleName]['hm_gap_inner']            = array('Innen-Abstand links  & rechts (padding)', 'Definiert einen inneren, horizontalen Abstand');
 
 #-- background attachment
 $GLOBALS['TL_LANG'][$moduleName]['hm_position'] = array('Position', 'Definiert die Position. Unnötig wenn Größe angegeben.');
@@ -47,9 +44,13 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_layout_dyn'] = array('Layout', 'Definiert d
 $GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_top_dyn'] = array('Innen-Abstand oben (padding)', 'Definiert einen inneren, oberen vertikalen Abstand');
 $GLOBALS['TL_LANG'][$moduleName]['hm_step_inner_bottom_dyn'] = array('Innen-Abstand unten (padding)', 'Definiert einen inneren, unteren vertikalen Abstand');
 
-$GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited']           = 'Begrenzte Breite';
-$GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited-m']         = 'Begrenzte Breite - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-layout-limited-s']         = 'Begrenzte Breite - small';
+$GLOBALS['TL_LANG'][$moduleName]['layout-limited']          = 'Begrenzte Breite';
+$GLOBALS['TL_LANG'][$moduleName]['layout-limited-m']        = 'Begrenzte Breite M';
+$GLOBALS['TL_LANG'][$moduleName]['layout-limited-s']        = 'Begrenzte Breite S';
+$GLOBALS['TL_LANG'][$moduleName]['layout-full']             = 'Gesamte Breite';
+$GLOBALS['TL_LANG'][$moduleName]['layout-full-limited']     = 'Gesamte Breite - Inhalte begrenzt';
+$GLOBALS['TL_LANG'][$moduleName]['layout-full-limited-m']   = 'Gesamte Breite - Inhalte begrenzt M';
+$GLOBALS['TL_LANG'][$moduleName]['layout-full-limited-s']   = 'Gesamte Breite - Inhalte begrenzt S';
 
 #-- grid
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_size'] = array('Spalten Abstand', 'Definiert den Abstand zwiechen den Spalten');
@@ -77,34 +78,46 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_slider_nav_outside'] = array('Navigation Au
 $GLOBALS['TL_LANG'][$moduleName]['hm_slider_nav_hide_hover'] = array('Navigation Verbergen', 'Definiert ob die Navigations-Elemente nur angezeigt werden sollen wenn der Mauszeiger sich auf den Slides befindet');
 
 
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-no']        = 'Kein Abstand';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-l']         = 'Abstand oben - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-m']         = 'Abstand oben - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-top-s']         = 'Abstand oben - small';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-bottom-no']     = 'Kein Abstand';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-bottom-l']      = 'Abstand unten - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-bottom-m']      = 'Abstand unten - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-bottom-s']      = 'Abstand unten - small';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-l']             = 'Abstand oben & unten - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-m']             = 'Abstand oben & unten - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-inner-s']             = 'Abstand oben & unten - small';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-top-no']        = 'Kein Abstand';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-top-xl']        = 'Abstand oben XL';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-top-l']         = 'Abstand oben L';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-top-m']         = 'Abstand oben M';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-top-s']         = 'Abstand oben S';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-bottom-no']     = 'Kein Abstand';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-bottom-xl']     = 'Abstand unten XL';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-bottom-l']      = 'Abstand unten L';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-bottom-m']      = 'Abstand unten M';
+$GLOBALS['TL_LANG'][$moduleName]['step-inner-bottom-s']      = 'Abstand unten S';
 
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-top-no']        = 'Kein Abstand';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-top-l']         = 'Abstand oben - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-top-m']         = 'Abstand oben - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-top-s']         = 'Abstand oben - small';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-bottom-no']     = 'Kein Abstand';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-bottom-l']      = 'Abstand unten - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-bottom-m']      = 'Abstand unten - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-bottom-s']      = 'Abstand unten - small';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-l']             = 'Abstand oben & unten - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-m']             = 'Abstand oben & unten - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-step-outer-s']             = 'Abstand oben & unten - small';
+$GLOBALS['TL_LANG'][$moduleName]['auto']     = 'Auto - nimmt die Breite des Kindelements ein';
+$GLOBALS['TL_LANG'][$moduleName]['expand']   = 'Expand - nimmt restlichen Platz ein';
+$GLOBALS['TL_LANG'][$moduleName]['1-1']      = 'Breite 1-1 | 100%';
+$GLOBALS['TL_LANG'][$moduleName]['1-2']      = 'Breite 1-2 | 50%';
+$GLOBALS['TL_LANG'][$moduleName]['1-3']      = 'Breite 1-3 | 33%';
+$GLOBALS['TL_LANG'][$moduleName]['2-3']      = 'Breite 2-3 | 66%';
+$GLOBALS['TL_LANG'][$moduleName]['1-4']      = 'Breite 1-4 | 25%';
+$GLOBALS['TL_LANG'][$moduleName]['2-4']      = 'Breite 2-4 | 50%';
+$GLOBALS['TL_LANG'][$moduleName]['3-4']      = 'Breite 3-4 | 75%';
+$GLOBALS['TL_LANG'][$moduleName]['1-5']      = 'Breite 1-5 | 20%';
+$GLOBALS['TL_LANG'][$moduleName]['2-5']      = 'Breite 2-5 | 40%';
+$GLOBALS['TL_LANG'][$moduleName]['3-5']      = 'Breite 3-5 | 60%';
+$GLOBALS['TL_LANG'][$moduleName]['4-5']      = 'Breite 4-5 | 80%';
+$GLOBALS['TL_LANG'][$moduleName]['1-6']      = 'Breite 1-6 | 16%';
+$GLOBALS['TL_LANG'][$moduleName]['2-6']      = 'Breite 2-6 | 33%';
+$GLOBALS['TL_LANG'][$moduleName]['3-6']      = 'Breite 3-6 | 50%';
+$GLOBALS['TL_LANG'][$moduleName]['4-6']      = 'Breite 4-6 | 66%';
+$GLOBALS['TL_LANG'][$moduleName]['5-6']      = 'Breite 5-6 | 83%';
 
-$GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-no']            = 'Kein Abstand';
-$GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-l']             = 'Abstand links & rechts - large';
-$GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-m']             = 'Abstand links & rechts - medium';
-$GLOBALS['TL_LANG'][$moduleName]['hm-gap-inner-s']             = 'Abstand links & rechts - small';
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-small']     = 'Abstand S';
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-medium']    = 'Abstand M';
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-large']     = 'Abstand L';
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-collapse']  = 'Kein Abstand';
+
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-divider']  = 'Mit Trennelement';
+
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-match']  = 'Gleiche Höhe';
+
+$GLOBALS['TL_LANG'][$moduleName]['uk-grid-masonry']  = 'Masonry anwenden';
 
 #-- tile field -----------------------------
 $GLOBALS['TL_LANG'][$moduleName]['tiles_legend']            = 'Einstellungen für Kacheln & Spalten';
