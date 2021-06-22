@@ -368,7 +368,6 @@ try{
         ->addPaletteGroup('layout', array(
             'hm_grid_size', 'hm_grid_width',
             'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',
-            'hm_grid_masonry',
             ),
             'hm_gallery', 3
         )
