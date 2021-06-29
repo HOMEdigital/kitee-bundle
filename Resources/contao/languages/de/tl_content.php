@@ -11,7 +11,7 @@
 
 $moduleName = 'tl_content';
 
-$GLOBALS['TL_LANG'][$moduleName]['layout_legend']       = 'Layoutbereich';
+$GLOBALS['TL_LANG'][$moduleName]['layout_legend'] = 'Anzeigeeinstellungen';
 $GLOBALS['TL_LANG'][$moduleName]['text_column_layout_legend'] = 'Spalten-Layoutbereich';
 $GLOBALS['TL_LANG'][$moduleName]['background_attachment_layout_legend'] = 'Background-Layoutbereich';
 
@@ -53,6 +53,7 @@ $GLOBALS['TL_LANG'][$moduleName]['layout-full-limited-m']   = 'Gesamte Breite - 
 $GLOBALS['TL_LANG'][$moduleName]['layout-full-limited-s']   = 'Gesamte Breite - Inhalte begrenzt S';
 
 #-- grid
+$GLOBALS['TL_LANG'][$moduleName]['grid_legend'] = 'Spaltenangaben';
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_size'] = array('Spalten Abstand', 'Definiert den Abstand zwiechen den Spalten');
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_divider'] = array('Spalten Trenner', 'Definiert ob ein Trennstrich zwischen den Spalten angezeigt werden soll');
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_match'] = array('Gleiche Höhe für alle Elemente', 'Definiert ob alle Kind-Elemente die gleiche Höhe haben sollen');

@@ -107,7 +107,7 @@ try{
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -117,7 +117,7 @@ try{
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -127,7 +127,7 @@ try{
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -137,7 +137,7 @@ try{
             ),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -145,7 +145,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w20',
                 'includeBlankOption' => true,
             ),
         ))
@@ -153,7 +153,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w20',
                 'includeBlankOption' => true,
             ),
         ))
@@ -161,7 +161,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w20',
                 'includeBlankOption' => true,
             ),
         ))
@@ -169,7 +169,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w20',
                 'includeBlankOption' => true,
             ),
         ))
@@ -177,22 +177,24 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w20',
                 'includeBlankOption' => true,
             ),
         ))
         ->addField('text', 'hm_inner_css', array(
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
 
         ->copyPalette('hm_kitee_content_base', 'hm_grid_container_start')
+        ->addPaletteGroup('grid', array(
+            'hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl'
+        ), 'hm_grid_container_start', 2)
         ->addPaletteGroup('layout',
-            array('hm_grid_size', 'hm_grid_divider', 'hm_grid_match', 'hm_grid_masonry', 'hm_grid_width',
-                'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl'),
-            'hm_grid_container_start', 2
+            array('hm_grid_size', 'hm_grid_divider', 'hm_grid_match', 'hm_grid_masonry', ),
+            'hm_grid_container_start', 3
         )
 
         ->copyPalette('hm_kitee_content_base', 'hm_grid_container_column')
@@ -208,73 +210,73 @@ try{
         ->addField('checkbox','hm_slider_autoplay', array(
             'default' => 0,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('integer','hm_slider_autoplay_interval', array(
             'default' => 7000,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_center', array(
             'default' => 0,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_draggable', array(
             'default' => 1,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_infinite', array(
             'default' => 1,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_pause', array(
             'default' => 1,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_sets', array(
             'default' => 0,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('integer','hm_slider_velocity', array(
             'default' => 1,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('text', 'hm_slider_easing', array(
             'default' => 'ease',
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('integer','hm_slider_index', array(
             'default' => 0,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_nav_hide_hover', array(
             'default' => 1,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('checkbox','hm_slider_nav_outside', array(
             'default' => 0,
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
             ),
         ))
         ->addField('gallery', 'gallery')
@@ -286,10 +288,12 @@ try{
                 'hm_slider_index', 'hm_slider_nav_hide_hover', 'hm_slider_nav_outside'),
             'hm_slider', 3
         )
-        ->addPaletteGroup('layout',
-            array('hm_grid_size',
-                'hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',),
-            'hm_slider', 4
+        ->addPaletteGroup('grid', array(
+            'hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',
+        ), 'hm_slider', 4)
+        ->addPaletteGroup('layout', array(
+            'hm_grid_size',
+            ), 'hm_slider', 5
         )
     ;
 
@@ -306,7 +310,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getPositionOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w33',
                 'includeBlankOption' => true,
             ),
         ))
@@ -314,7 +318,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getSizeOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w33',
                 'includeBlankOption' => true,
             ),
         ))
@@ -322,7 +326,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getHeightWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w33',
                 'includeBlankOption' => true,
             ),
         ))
@@ -331,7 +335,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -339,7 +343,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -347,7 +351,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -355,7 +359,7 @@ try{
             'options_callback' => array('Home\KiteeBundle\Resources\contao\dca\tl_content', 'getGridWidthOptions'),
             'reference' => &$GLOBALS['TL_LANG']['tl_content'],
             'eval' => array(
-                'tl_class' => 'w50',
+                'tl_class' => 'w25',
                 'includeBlankOption' => true,
             ),
         ))
@@ -372,11 +376,14 @@ try{
     $tl_content
         ->copyPalette('hm_kitee_content_base', 'hm_gallery')
         ->addPaletteGroup('image', array('gallery','size','sortBy'), 'hm_gallery', 2)
-        ->addPaletteGroup('layout', array(
-            'hm_grid_size', 'hm_grid_width',
+        ->addPaletteGroup('grid', array(
+            'hm_grid_width',
             'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',
+        ), 'hm_gallery', 3)
+        ->addPaletteGroup('layout', array(
+            'hm_grid_size',
             ),
-            'hm_gallery', 3
+            'hm_gallery', 4
         )
         ->addPaletteGroup('expert', array('guests', 'cssID', 'hm_inner_css'), 'hm_gallery')
     ;

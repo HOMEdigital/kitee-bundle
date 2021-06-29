@@ -1,0 +1,26 @@
+.w20, .w25, .w33, .w66, .w75 {
+    float: left;
+    min-height: 80px;
+}
+.w20 {
+    width: calc(20% - 30px);
+}
+.w25 {
+    width: calc(25% - 30px);
+}
+.w33 {
+    width: calc(33.3333% - 30px);
+}
+.w66 {
+    width: calc(66.6666% - 30px);
+}
+.w75 {
+    width: calc(75% - 30px);
+}
+
+@media (max-width: 767px) {
+    .w25, .w33, .w66, .w75 {
+        float: none;
+        width: calc(100% - 30px);
+    }
+}

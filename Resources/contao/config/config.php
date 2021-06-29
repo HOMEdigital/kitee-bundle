@@ -8,6 +8,10 @@
 
 use Home\KiteeBundle\Resources\contao\hooks\GetContentElementListener;
 
+if (TL_MODE == 'BE') {
+    $GLOBALS['TL_CSS'][] = 'bundles/homekitee/css/backend.css|static';
+}
+
 #-- hooks --------------------------------------------------------------------------------------------------------------
 $GLOBALS['TL_HOOKS']['getArticle'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetArticle', 'setLayoutClasses');
 $GLOBALS['TL_HOOKS']['getContentElement'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetContentElement', 'setLayoutClasses');
