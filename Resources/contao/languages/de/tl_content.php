@@ -62,6 +62,7 @@ $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_s'] = array('Spaltenenbreite S',
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_m'] = array('Spaltenenbreite M', 'Definiert die Breite der Spalte bei Bildschrimen mit 960px und mehr');
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_l'] = array('Spaltenenbreite L', 'Definiert die Breite der Spalte bei Bildschrimen mit 1200px und mehr');
 $GLOBALS['TL_LANG'][$moduleName]['hm_grid_width_xl'] = array('Spaltenenbreite XL', 'Definiert die Breite der Spalte bei Bildschrimen mit 1600px und mehr');
+$GLOBALS['TL_LANG'][$moduleName]['hm_inner_css'] = array('CSS Klasse Kind-Element', 'Hier können Sie beliebig viele Klassen eingeben die dem Kind-Element zugewiesen werden.');
 
 #-- slider
 $GLOBALS['TL_LANG'][$moduleName]['hm_slider_autoplay'] = array('Autoplay', 'Definiert ob Autoplay verwendet werden soll');

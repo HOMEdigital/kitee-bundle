@@ -181,6 +181,12 @@ try{
                 'includeBlankOption' => true,
             ),
         ))
+        ->addField('text', 'hm_inner_css', array(
+            'reference' => &$GLOBALS['TL_LANG']['tl_content'],
+            'eval' => array(
+                'tl_class' => 'w50',
+            ),
+        ))
 
         ->copyPalette('hm_kitee_content_base', 'hm_grid_container_start')
         ->addPaletteGroup('layout',
@@ -194,6 +200,7 @@ try{
             array('hm_grid_width', 'hm_grid_width_s', 'hm_grid_width_m', 'hm_grid_width_l', 'hm_grid_width_xl',),
             'hm_grid_container_column', 2
         )
+        ->addPaletteGroup('expert', array('guests', 'cssID', 'hm_inner_css'), 'hm_grid_container_start')
     ;
 
     #-- hm_slider
@@ -371,6 +378,7 @@ try{
             ),
             'hm_gallery', 3
         )
+        ->addPaletteGroup('expert', array('guests', 'cssID', 'hm_inner_css'), 'hm_gallery')
     ;
 
     #-- hm_spacer --------------------------------------------

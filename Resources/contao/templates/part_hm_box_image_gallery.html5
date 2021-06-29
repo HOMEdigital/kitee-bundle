@@ -1,10 +1,10 @@
 <?php if (is_array($this->multiImages) && count($this->multiImages) == 1) : ?>
-<div>
+<div class="<?=$this->hm_inner_css?>">
     <?= $this->insert('picture_default', $this->multiImages[0]->picture)?>
 </div>
     <?php elseif(is_array($this->multiImages) && count($this->multiImages) > 1) : ?>
     <?php foreach ($this->multiImages as $picture) : ?>
-<div>
+<div class="<?=$this->hm_inner_css?>">
     <?= $this->insert('picture_default', $picture->picture) ?>
 </div>
     <?php endforeach; ?>
