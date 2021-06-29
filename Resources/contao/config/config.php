@@ -13,7 +13,6 @@ if (TL_MODE == 'BE') {
 }
 
 #-- hooks --------------------------------------------------------------------------------------------------------------
-$GLOBALS['TL_HOOKS']['getArticle'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetArticle', 'setLayoutClasses');
 $GLOBALS['TL_HOOKS']['getContentElement'][] = array('Home\KiteeBundle\Resources\contao\hooks\GetContentElement', 'setLayoutClasses');
 $GLOBALS['TL_HOOKS']['getContentElement'][] = [GetContentElementListener::class, '__invoke'];
 
