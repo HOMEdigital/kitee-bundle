@@ -1,7 +1,7 @@
 <div class=" uk-grid<?= $this->hm_grid_size ? ' '.$this->hm_grid_size : ''?><?= $this->hm_grid_width ? ' uk-child-width-'.$this->hm_grid_width : ''?><?= $this->hm_grid_width_s ? ' uk-child-width-'.$this->hm_grid_width_s.'@s' : ''?><?= $this->hm_grid_width_m ? ' uk-child-width-'.$this->hm_grid_width_m.'@m' : ''?><?= $this->hm_grid_width_l ? ' uk-child-width-'.$this->hm_grid_width_l.'@l' : ''?><?= $this->hm_grid_width_xl ? ' uk-child-width-'.$this->hm_grid_width_xl.'@xl' : ''?>" uk-grid="masonry: true">
     <?php
     #-- image
-    if ($this->multiSRC) {
+    if ($this->multiImages) {
         $template = new \FrontendTemplate('part_hm_box_image_gallery');
         $template->setData($this->arrData);
         echo $template->parse();
