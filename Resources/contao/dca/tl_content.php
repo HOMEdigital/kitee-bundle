@@ -186,6 +186,7 @@ try{
             'eval' => array(
                 'tl_class' => 'w25',
             ),
+            'default' => '',
         ))
 
         ->copyPalette('hm_kitee_content_base', 'hm_grid_container_start')
@@ -404,6 +405,7 @@ try{
             'eval' => array(
                 'tl_class' => 'w50 clr'
             ),
+            'default' => '',
         ))
     ;
 
@@ -464,6 +466,7 @@ try{
             'eval' => array(
                 'tl_class' => 'w50'
             ),
+            'default' => '',
         ))
         ->addField('select', 'hm_display', array(
             'options' => array(
@@ -497,6 +500,7 @@ try{
                 'decodeEntities' => true,
                 'tl_class' => 'w50'
             ),
+            'default' => '',
         ))
         ->mergeFieldSettings('text', 'eval', array('mandatory'=>false, 'tl_class'=>'clr'))
         ->mergeFieldSettings('url', 'eval', array('mandatory'=>false))

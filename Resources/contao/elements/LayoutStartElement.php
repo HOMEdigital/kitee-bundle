@@ -48,12 +48,22 @@ class LayoutStartElement extends \ContentElement
     private function generateFrontend()
     {
         #-- add classes
-        $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
-            'design' => $this->hm_design_dyn,
-            'layout' => $this->hm_layout_dyn,
-            'stepInnerTop' => $this->hm_step_inner_top_dyn,
-            'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
-        ))));
+        if (is_array($this->objModel->classes)) {
+            $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+                'design' => $this->hm_design_dyn,
+                'layout' => $this->hm_layout_dyn,
+                'stepInnerTop' => $this->hm_step_inner_top_dyn,
+                'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
+            ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'design' => $this->hm_design_dyn,
+                'layout' => $this->hm_layout_dyn,
+                'stepInnerTop' => $this->hm_step_inner_top_dyn,
+                'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
+            )));
+
+        }
 
         #-- store the wrapper start; will be closed in end element
         $GLOBALS['kitee']['container'] = 'containerTile';
