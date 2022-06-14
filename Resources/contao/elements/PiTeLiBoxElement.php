@@ -54,6 +54,11 @@ class PiTeLiBoxElement extends \ContentElement
             $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
                 'design' => $this->hm_design
             ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'design' => $this->hm_design
+            )));
+
         }
     }
 }

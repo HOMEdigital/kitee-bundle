@@ -45,10 +45,18 @@ class HrElement extends \ContentElement
     private function generateFrontend()
     {
         #-- add classes
-        $this->objModel->classes = array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
-            'stepOuterTop' => $this->hm_step_outer_top,
-            'stepOuterBottom' => $this->hm_step_outer_bottom
-        )));
+        if (is_array($this->objModel->classes)) {
+            $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+                'stepOuterTop' => $this->hm_step_outer_top,
+                'stepOuterBottom' => $this->hm_step_outer_bottom
+            ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'stepOuterTop' => $this->hm_step_outer_top,
+                'stepOuterBottom' => $this->hm_step_outer_bottom
+            )));
+
+        }
     }
 
 }

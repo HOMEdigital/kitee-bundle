@@ -52,8 +52,13 @@ class IcTeLiBoxElement extends \ContentElement
         #-- add classes
         if (is_array($this->objModel->classes)) {
             $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
-                'design' => $this->hm_design
+                'design' => $this->hm_design_dyn
             ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'design' => $this->hm_design_dyn
+            )));
+
         }
     }
 }

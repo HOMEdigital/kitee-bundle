@@ -53,13 +53,16 @@ class SliderElement extends \ContentElement
             $this->Template->multiImages = DataHelper::getMultiImgObjs($this->galleryOrder, deserialize($this->size));
         }
 
-        //$options =
-
         #-- add classes
         if (is_array($this->objModel->classes)) {
             $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
                 'design' => $this->hm_design
             ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'design' => $this->hm_design
+            )));
+
         }
     }
 }

@@ -47,10 +47,18 @@ class SpacerElement extends \ContentElement
     private function generateFrontend()
     {
         #-- add classes
-        $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
-            'stepInnerTop' => $this->hm_step_inner_top_dyn,
-            'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
-        ))));
+        if (is_array($this->objModel->classes)) {
+            $this->objModel->classes = array_unique(array_merge($this->objModel->classes, HomeKiteeHelper::getLayoutClasses(array(
+                'stepInnerTop' => $this->hm_step_inner_top_dyn,
+                'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
+            ))));
+        } else {
+            $this->objModel->classes = array_unique(HomeKiteeHelper::getLayoutClasses(array(
+                'stepInnerTop' => $this->hm_step_inner_top_dyn,
+                'stepInnerBottom' => $this->hm_step_inner_bottom_dyn,
+            )));
+
+        }
     }
 
 }
