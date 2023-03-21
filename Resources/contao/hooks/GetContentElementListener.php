@@ -14,7 +14,7 @@ use Home\KiteeBundle\Resources\HomeKiteeHelper;
  */
 class GetContentElementListener
 {
-    public function __invoke(ContentModel $contentModel, string $buffer, ContentElement $element): string
+    public function __invoke(ContentModel $contentModel, string $buffer, $element): string
     {
         // Modify or create new $buffer here …
 
